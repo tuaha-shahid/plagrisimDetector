@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #007bff;  /* Blue */
+    --secondary-color: #f8f9fa;  /* Light White */
+    --text-color: #333333;  /* Dark Gray for text */
+    --background-color: #ffffff;  /* White */
+    --accent-color: #0056b3;  /* Darker Blue for accents */
+  }
+  .bg{
+    background-color: #0056b3;
+  }

@@ -1,0 +1,61 @@
+.forTrue{
+    color: rgb(9, 179, 9);
+}
+.forFalse{
+    color: rgb(203, 5, 5);
+}
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    z-index: 1050; /* Ensure it appears above other content */
+  }
+  
+  .loader {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .loader:after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    margin: auto;
+    background: #222b32;
+    border-radius: 50%;
+  }
+  
+  .loader:before {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    margin: auto;
+    background: #0043de;
+    animation: crlMugLoader 2s linear infinite alternate;
+  }
+  
+  @keyframes crlMugLoader {
+    0%, 10% {
+      transform: translateY(64px);
+    }
+    90%, 100% {
+      transform: translateY(0px);
+    }
+  }
+  :root {
+    --primary-color: #007bff;  /* Blue */
+    --secondary-color: #f8f9fa;  /* Light White */
+    --text-color: #333333;  /* Dark Gray for text */
+    --background-color: #ffffff;  /* White */
+    --accent-color: #0056b3;  /* Darker Blue for accents */
+  }
+
+
+      

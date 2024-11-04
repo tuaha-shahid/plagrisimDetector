@@ -1,0 +1,94 @@
+<div class="container my-5 p-4 shadow-sm rounded ">
+  <!-- Form Section -->
+  <div>
+    <form [formGroup]="form">
+      <div class="mb-4">
+        <label for="exampleFormControlTextarea1" class="form-label fs-2 text-primary text-center d-flex justify-content-center">
+          Check Plagiarism
+        </label>
+        <div  class="d-flex justify-content-center">Please avoid entering the following characters in your text:</div>
+          <div class="d-flex justify-content-center">
+            (&),(<),(>),("),('),(\)
+          </div>
+        <textarea
+          class="form-control border border-dark"
+          id="exampleFormControlTextarea1"
+          formControlName="plagContent"
+          rows="8"
+          placeholder="Enter your text here..."
+         ></textarea>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-outline-primary px-4" (click)="checkPlagirism()" [disabled]="form.invalid">Check Plagiarism</button>
+      </div>
+    </form>
+  </div>
+  
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-overlay d-flex justify-content-center align-items-center">
+    <div class="loader"></div>
+  </div>
+  
+
+  <!-- Results Section -->
+  <div class="container mt-5" *ngIf="plagResult && !isLoading">
+    <h5 class="text-center fs-4 text-secondary mb-4">Plagiarism Results</h5>
+    
+    <div class="row text-center mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="fw-bold text-muted">Plagiarism Percentage:</div>
+        <div class="displayed-percentage fs-5 text-danger">{{ displayedPlagPercent }}%</div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="fw-bold text-muted">Unique Percentage:</div>
+        <div class="displayed-percentage fs-5 text-success">{{ displayedUniqPercent }}%</div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="fw-bold text-muted">Paraphrase Percentage:</div>
+        <div class="displayed-percentage fs-5 text-warning">{{ displayPhrasPercent}}%</div>
+      </div>
+    </div>
+
+    <!-- Sources Section -->
+    <div *ngIf="plagResult.sources.length">
+      <h6 class="text-primary mt-4">Sources:</h6>
+      <ul class="list-unstyled">
+        <li *ngFor="let source of plagResult.sources" class="mb-2">
+          <a [href]="source.link" class="text-decoration-none text-break" target="_blank">{{ source.link }}</a>
+          - <span class="fw-bold">{{ source.percent }}% match</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Details Section -->
+    <div *ngIf="plagResult.details.length">
+      <h5 class="text-primary fs-4 text-center mt-4">Details:</h5>
+      <div class="row">
+        <div class="col-12 col-md-6">
+      <h6 class="text-center mt-4">Unique Content</h6>
+
+          <ul class="list-unstyled border border-secondary p-2">
+            @for ( source of plagResult.details;track $index) {
+              @if (source.unique === 'true') {
+                <li class="forTrue  mb-2">{{ source.query }}</li>
+              }
+            }
+          </ul>
+        </div>
+        <div class="col-12 col-md-6">
+      <h6 class="  text-center mt-4">Plagrised Content</h6>
+
+          <ul class="list-unstyled border border-secondary p-2">
+            
+            @for ( source of plagResult.details;track $index) {
+              @if (source.unique === 'false') {
+                <li class="forFalse  mb-2">{{ source.query }}</li>
+              }
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
