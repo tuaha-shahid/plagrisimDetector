@@ -3,14 +3,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { PlagService } from '../../Services/Plagrisim/plag.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlagiarismCheckResult } from '../../Types/plag';
-import { CommonModule } from '@angular/common';
-
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RoughNotationModule } from 'ng-rough-notation';
+import { Inject, PLATFORM_ID } from '@angular/core';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ReactiveFormsModule, FormsModule,CommonModule],
+  imports: [RouterOutlet, RouterLink, ReactiveFormsModule, FormsModule,CommonModule,RoughNotationModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   form: FormGroup;
@@ -21,11 +22,19 @@ export class HomeComponent {
   isLoading = false;  
 
   plagrsimService = inject(PlagService);
+  isBrowser: boolean;
 
-  constructor(private fb: FormBuilder) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private fb: FormBuilder) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
     this.form = this.fb.group({
       plagContent: ['', Validators.required]
     });
+  }
+  
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      // Safe to use window object here
+    }
   }
    
 
