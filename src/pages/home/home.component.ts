@@ -27,7 +27,7 @@ export class HomeComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: Object,private fb: FormBuilder) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.form = this.fb.group({
-      plagContent: ['', Validators.required]
+      plagContent: ['', Validators.compose([Validators.required, Validators.maxLength(999)])]
     });
   }
   
@@ -36,8 +36,14 @@ export class HomeComponent {
       // Safe to use window object here
     }
   }
-   
+  getLength() {
 
+    var content = this.form.value.plagContent.length; // Accessing the field value
+    if(content>=999){
+      return true
+    }
+    return false; // Ensure it handles empty/null values
+  }
   sanitizeInput(input: string): string {
     const sanitized = input.replace(/[&<>"'\\]/g, (char) => {
       switch (char) {
@@ -59,15 +65,17 @@ export class HomeComponent {
     });
     return sanitized;
   }
-  
+
+  // this.form.value.plagContent
   checkPlagirism() {
-    console.log('Form Data (before sanitization):', this.form.value);
+    // console.log('Form Data (before sanitization):', this.form.value);
   
     // Sanitize the input
     const sanitizedContent = this.sanitizeInput(this.form.value.plagContent);
+    // console.log(this.form.value.plagContent.length);
     const sanitizedFormValue = { ...this.form.value, plagContent: sanitizedContent };
   
-    console.log('Form Data (after sanitization):', sanitizedFormValue);
+    // console.log('Form Data (after sanitization):', sanitizedFormValue);
   
     this.isLoading = true;
     this.plagResult = undefined;
@@ -75,7 +83,9 @@ export class HomeComponent {
     this.plagrsimService.checkPlagrisim(sanitizedFormValue).subscribe(
       (result: PlagiarismCheckResult) => {
         this.plagResult = result;
-        console.log('Plagiarism Check Result:', result);
+        // console.log('Plagiarism Check Result:', result );
+        // console.log('Plagiarism Check Result:', this.plagResult );
+
         this.isLoading = false;
         this.animateCount();
       },

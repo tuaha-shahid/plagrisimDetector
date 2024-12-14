@@ -17,6 +17,12 @@
           <textarea id="customTextarea" class="form-control custom-textarea border-dark"  formControlName="plagContent"
           rows="8"
           placeholder="Enter your text here..."></textarea>
+          @if(getLength()){
+            <div  class="fs-5 d-flex justify-content-center my-2">Enter maximum 
+              <span [roughNotation]="{ type: 'box', color: '#F44336' }" class="mx-2"> 1000 </span>
+              characters </div>
+          }
+         
         </div>
         
       </div>
@@ -120,8 +126,16 @@
       </ul>
     </div>
 
+
+    
+    
+    
+    <ng-template #noDetails>
+      <div class="text-center">No details available</div>
+    </ng-template>
+    
     <!-- Details Section -->
-    <div *ngIf="plagResult.details.length">
+    <div *ngIf="plagResult.details.length > 0">
       <div class="text-center fs-4 text-dark mb-4 fw-medium text-dark">
         <span *ngIf="isBrowser" [roughNotation]="{ type: 'box', color: '#F44336' } ">Details</span>
         </div>
@@ -130,24 +144,24 @@
         <div class="col-12 col-md-6">
       <h6 class="text-center my-2 fs-4">Unique Content</h6>
 
-          <ul *ngIf="isBrowser" [roughNotation]="{ type: 'box', color: '#F44336' } " class="list-unstyled border border-secondary p-2">
-            @for ( source of plagResult.details;track $index) {
-              @if (source.unique === 'true') {
-                <li class="forTrue  mb-2">{{ source.query }}</li>
-              }
-            }
+          <ul *ngIf="isBrowser"  class="list-unstyled border border-secondary p-2">
+            <ng-container *ngFor="let source of plagResult.details">
+              <li *ngIf="source.unique" class="forTrue mb-2">
+                {{ source.query }}
+              </li>
+            </ng-container>
           </ul>
         </div>
         <div class="col-12 col-md-6">
       <h6 class="  text-center my-2 fs-4">Plagrised Content</h6>
 
-          <ul *ngIf="isBrowser" [roughNotation]="{ type: 'box', color: '#F44336' } " class="list-unstyled border border-secondary p-2">
+          <ul *ngIf="isBrowser"  class="list-unstyled border border-secondary p-2">
             
-            @for ( source of plagResult.details;track $index) {
-              @if (source.unique === 'false') {
-                <li class="forFalse  mb-2">{{ source.query }}</li>
-              }
-            }
+            <ng-container *ngFor="let source of plagResult.details">
+              <li *ngIf="!source.unique" class="forFalse mb-2">
+                {{ source.query }}
+              </li>
+            </ng-container>
           </ul>
         </div>
       </div>
