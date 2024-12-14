@@ -38,24 +38,54 @@ export class HomeComponent {
   }
    
 
+  sanitizeInput(input: string): string {
+    const sanitized = input.replace(/[&<>"'\\]/g, (char) => {
+      switch (char) {
+        case '&':
+          return '&amp;';
+        case '<':
+          return '&lt;';
+        case '>':
+          return '&gt;';
+        case '"':
+          return '&quot;';
+        case "'":
+          return '&#x27;';
+        case '\\':
+          return '&#x5c;';
+        default:
+          return char;
+      }
+    });
+    return sanitized;
+  }
+  
   checkPlagirism() {
-    console.log('Form Data:', this.form.value);  // Log form data
-    this.isLoading = true;  // Start loading
-    this.plagResult = undefined;  // Clear previous results
-
-    this.plagrsimService.checkPlagrisim(this.form.value).subscribe(
+    console.log('Form Data (before sanitization):', this.form.value);
+  
+    // Sanitize the input
+    const sanitizedContent = this.sanitizeInput(this.form.value.plagContent);
+    const sanitizedFormValue = { ...this.form.value, plagContent: sanitizedContent };
+  
+    console.log('Form Data (after sanitization):', sanitizedFormValue);
+  
+    this.isLoading = true;
+    this.plagResult = undefined;
+  
+    this.plagrsimService.checkPlagrisim(sanitizedFormValue).subscribe(
       (result: PlagiarismCheckResult) => {
         this.plagResult = result;
-        console.log('Plagiarism Check Result:', result);  // Log result here
-        this.isLoading = false;  // Stop loading
+        console.log('Plagiarism Check Result:', result);
+        this.isLoading = false;
         this.animateCount();
       },
       (error) => {
         console.error('Error fetching plagiarism check result:', error);
-        this.isLoading = false;  // Stop loading in case of error
+        this.isLoading = false;
       }
     );
   }
+  
   animateCount() {
     const target = this.plagResult?.plagPercent || 0;
     const target1 = this.plagResult?.uniquePercent || 0;
