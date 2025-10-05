@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../pages/navbar/navbar.component';
 import { FooterComponent } from '../pages/footer/footer.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,4 +11,11 @@ import { FooterComponent } from '../pages/footer/footer.component';
 })
 export class AppComponent {
   title = 'FrontPlag';
+  constructor() {
+    if (typeof window !== 'undefined') {
+      import('@vercel/analytics').then((mod) => mod.inject());
+    }
+  }
+  
+
 }

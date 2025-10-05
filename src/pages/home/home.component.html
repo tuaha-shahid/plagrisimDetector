@@ -1,3 +1,8 @@
+
+
+
+
+
 <div class="container my-5 p-4 shadow-sm rounded ">
   <!-- Form Section -->
 
@@ -5,11 +10,11 @@
     <form [formGroup]="form">
       <div class="mb-4">
         <label for="exampleFormControlTextarea1" class="form-label fs-1 fw-bold text-center d-flex justify-content-center">
-          <span *ngIf="isBrowser" [roughNotation]="{ type: 'highlight', color: '#F44336' }">Check Plagiarism</span>
+          <span *ngIf="isBrowser" >Check Plagiarism</span>
         </label>
         <div  class="fs-5 d-flex justify-content-center">Please avoid entering the following characters in your text</div>
           <div  class="fs-4 d-flex justify-content-center mb-4">
-          <span *ngIf="isBrowser" [roughNotation]="{ type: 'underline', color: '#F44336' }">(&),(<),(>),("),('),(\)</span>
+          <span *ngIf="isBrowser" >(&),(<),(>),("),('),(\)</span>
           
           </div>
         
@@ -19,7 +24,7 @@
           placeholder="Enter your text here..."></textarea>
           @if(getLength()){
             <div  class="fs-5 d-flex justify-content-center my-2">Enter maximum 
-              <span [roughNotation]="{ type: 'box', color: '#F44336' }" class="mx-2"> 1000 </span>
+              <span  class="mx-2"> 1000 </span>
               characters </div>
           }
          
@@ -40,7 +45,7 @@
   </div>
   <div class="container mt-5" *ngIf="plagResult && !isLoading">
     <div class="text-center fs-4 text-dark mb-4 fw-medium text-dark">
-      <span *ngIf="isBrowser" [roughNotation]="{ type: 'box', color: '#F44336' } ">Plagiarism Results</span>
+      <span *ngIf="isBrowser">Plagiarism Results</span>
       </div>
 
     <div class="container">
@@ -116,7 +121,7 @@
     <!-- Sources Section -->
     <div *ngIf="plagResult.sources.length">
       <h6 class="text-dark fs-4 fw-medium mt-4">
-        <span *ngIf="isBrowser" [roughNotation]="{ type: 'underline', color: '#F44336' } ">Sources</span>
+        <span *ngIf="isBrowser" >Sources</span>
         </h6>
       <ul class="list-unstyled">
         <li *ngFor="let source of plagResult.sources" class="mb-2">
@@ -137,7 +142,7 @@
     <!-- Details Section -->
     <div *ngIf="plagResult.details.length > 0">
       <div class="text-center fs-4 text-dark mb-4 fw-medium text-dark">
-        <span *ngIf="isBrowser" [roughNotation]="{ type: 'box', color: '#F44336' } ">Details</span>
+        <span *ngIf="isBrowser" >Details</span>
         </div>
       <!-- <h5 class="text-primary fs-4 text-center mt-4">Details:</h5> -->
       <div class="row">

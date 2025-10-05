@@ -1,16 +1,41 @@
-<!-- <nav class="navbar navbar-expand-lg bg">
-    <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<header class="header_section">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <a class="navbar-brand" routerLink="/">
+        <span>Finexo</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <span class="toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto" >
-          <a class="nav-link active" aria-current="page" routerLink="home">Home</a>
-          <a class="nav-link" href="#">Features</a>
-          <a class="nav-link" href="#">Pricing</a>
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </div>
+
+      <div class="collapse navbar-collapse" [ngClass]="{ 'show': isNavbarOpen }" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/') }">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/about') }">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/services') }">
+            <a class="nav-link" routerLink="/services">Services</a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/why') }">
+            <a class="nav-link" routerLink="/why">Why Us</a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/team') }">
+            <a class="nav-link" routerLink="/team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login"><i class="fa fa-user"></i> Login</a>
+          </li>
+          <form class="form-inline">
+            <button class="btn nav_search-btn" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </ul>
       </div>
-    </div>
-  </nav> -->
+    </nav>
+  </div>
+</header>

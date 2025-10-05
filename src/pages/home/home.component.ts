@@ -4,12 +4,11 @@ import { PlagService } from '../../Services/Plagrisim/plag.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlagiarismCheckResult } from '../../Types/plag';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RoughNotationModule } from 'ng-rough-notation';
 import { Inject, PLATFORM_ID } from '@angular/core';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ReactiveFormsModule, FormsModule,CommonModule,RoughNotationModule],
+  imports: [ ReactiveFormsModule, FormsModule,CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
