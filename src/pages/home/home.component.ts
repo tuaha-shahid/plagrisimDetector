@@ -18,7 +18,7 @@ export class HomeComponent {
   displayedPlagPercent = 0;
   displayedUniqPercent = 0;
   displayPhrasPercent=0;
-  isLoading = false;  
+  isLoading =  false;
 
   plagrsimService = inject(PlagService);
   isBrowser: boolean;
@@ -29,7 +29,7 @@ export class HomeComponent {
       plagContent: ['', Validators.compose([Validators.required, Validators.maxLength(999)])]
     });
   }
-  
+
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       // Safe to use window object here
@@ -68,17 +68,17 @@ export class HomeComponent {
   // this.form.value.plagContent
   checkPlagirism() {
     // console.log('Form Data (before sanitization):', this.form.value);
-  
+
     // Sanitize the input
     const sanitizedContent = this.sanitizeInput(this.form.value.plagContent);
     // console.log(this.form.value.plagContent.length);
     const sanitizedFormValue = { ...this.form.value, plagContent: sanitizedContent };
-  
+
     // console.log('Form Data (after sanitization):', sanitizedFormValue);
-  
+
     this.isLoading = true;
     this.plagResult = undefined;
-  
+
     this.plagrsimService.checkPlagrisim(sanitizedFormValue).subscribe(
       (result: PlagiarismCheckResult) => {
         this.plagResult = result;
@@ -94,7 +94,7 @@ export class HomeComponent {
       }
     );
   }
-  
+
   animateCount() {
     const target = this.plagResult?.plagPercent || 0;
     const target1 = this.plagResult?.uniquePercent || 0;
@@ -121,6 +121,6 @@ export class HomeComponent {
 
     updateCount();
   }
-  
+
 
 }
