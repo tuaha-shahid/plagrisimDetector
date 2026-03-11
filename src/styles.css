@@ -1,7 +1,280 @@
-/* You can add global styles to this file, and also import other style files */
-*{
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+:root {
+    /* PlagiarismGuard — Graphite + Neon Green Brand System */
+    --bg-primary: #1F1F1F;
+    --bg-secondary: #252525;
+    --bg-tertiary: #2B2B2B;
+    --bg-card: #2B2B2B;
 
+    --primary: #39FF88;
+    --secondary: #9B5CF6;
+    --accent-green: #39FF88;
+    --accent-purple: #9B5CF6;
+    --primary-gradient: linear-gradient(135deg, #39FF88, #9B5CF6);
+
+    --text-primary: #EAEAEA;
+    --text-secondary: rgba(234, 234, 234, 0.70);
+    --text-muted: rgba(234, 234, 234, 0.45);
+    --text-accent: #39FF88;
+
+    --border: rgba(57, 255, 136, 0.12);
+    --border-subtle: rgba(57, 255, 136, 0.08);
+    --border-hover: rgba(57, 255, 136, 0.35);
+    --glow: rgba(57, 255, 136, 0.10);
+
+    --success: #39FF88;
+    --warning: #FF7849;
+    --error: #FF4D6A;
+
+    /* Typographic Scale — Responsive clamp() */
+    --fs-h1: clamp(2rem, 4vw, 3.5rem);
+    --fs-h2: clamp(1.5rem, 3vw, 2.5rem);
+    --fs-h3: clamp(1.1rem, 2vw, 1.5rem);
+    --fs-body: clamp(0.9rem, 1.5vw, 1rem);
+
+    /* Layout & Scale */
+    --max-width: 1100px;
+    --section-pad: 80px;
+    --nav-height: 64px;
+    --radius-standard: 16px;
+    --btn-height: 44px;
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    cursor: auto;
+}
+
+/* GLOBAL TEXT VISIBILITY OVERRIDES */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary) !important;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+p,
+span,
+li,
+label,
+a {
+    color: var(--text-secondary);
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.text-white {
+    color: #EAEAEA !important;
+}
+
+section {
+    padding: var(--section-pad) 0;
+    margin: 0 !important;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- Primary Button — Neon Green --- */
+.btn-primary,
+.btn-primary-glow {
+    position: relative;
+    height: var(--btn-height);
+    background: #39FF88;
+    border: none;
+    color: #1F1F1F !important;
+    font-weight: 700;
+    padding: 0 32px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 rgba(57, 255, 136, 0);
+}
+
+.btn-primary::before,
+.btn-primary-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover,
+.btn-primary-glow:hover {
+    box-shadow: 0 0 28px rgba(57, 255, 136, 0.45);
+    transform: translateY(-2px);
+    color: #1F1F1F !important;
+}
+
+.btn-primary:hover::before,
+.btn-primary-glow:hover::before {
+    left: 150%;
+}
+
+/* --- Secondary Button — Neon Green Border --- */
+.btn-secondary {
+    height: var(--btn-height);
+    background: transparent;
+    border: 1px solid rgba(57, 255, 136, 0.4);
+    color: #39FF88 !important;
+    font-weight: 600;
+    padding: 0 32px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    border-color: #39FF88;
+    color: #39FF88 !important;
+    background: rgba(57, 255, 136, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(57, 255, 136, 0.2);
+}
+
+/* --- Glass Card --- */
+.glass-card {
+    background: #2B2B2B !important;
+    border: 1px solid rgba(57, 255, 136, 0.12) !important;
+    border-radius: var(--radius-standard);
+    padding: 32px;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(57, 255, 136, 0.35) !important;
+    box-shadow: 0 0 40px rgba(57, 255, 136, 0.04);
+}
+
+/* --- Icon Containers --- */
+.icon-wrapper,
+.service-icon-circle,
+.info-icon-circle {
+    width: 48px;
+    height: 48px;
+    background: rgba(57, 255, 136, 0.10) !important;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #39FF88 !important;
+    margin-bottom: 20px;
+}
+
+.btn-action-icon {
+    background: rgba(57, 255, 136, 0.08);
+    border: 1px solid rgba(57, 255, 136, 0.2);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #39FF88 !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-action-icon:hover {
+    background: rgba(57, 255, 136, 0.15);
+    transform: scale(1.1);
+}
+
+.btn-outline-cyan-xs {
+    background: transparent;
+    border: 1px solid rgba(57, 255, 136, 0.4);
+    color: #39FF88 !important;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-outline-cyan-xs:hover {
+    background: #39FF88;
+    color: #1F1F1F !important;
+}
+
+/* --- Utilities --- */
+.gradient-text {
+    background: linear-gradient(135deg, #39FF88, #9B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2B2B2B;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #39FF88;
+}
+
+@media (max-width: 768px) {
+    body {
+        cursor: auto;
+    }
+}
+
+

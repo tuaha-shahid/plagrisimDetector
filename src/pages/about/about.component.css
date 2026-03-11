@@ -1,0 +1,377 @@
+:host {
+    display: block;
+    background: #1F1F1F;
+}
+
+:host h1,
+:host h2,
+:host h3,
+:host h4,
+:host h5,
+:host h6 {
+    color: #EAEAEA !important;
+}
+
+:host p,
+:host span,
+:host li,
+:host label {
+    color: rgba(234, 234, 234, 0.85) !important;
+}
+
+.section-label,
+.badge,
+.tag {
+    color: #39FF88 !important;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.about-container {
+    background: #1F1F1F;
+}
+
+/* ─── SECTION 1: Hero — Compact ─── */
+.about-hero {
+    max-height: 60vh;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 50%, rgba(57, 255, 136, 0.06) 0%, transparent 65%);
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.floating-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(155, 92, 246, 0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mission-quote-card {
+    background: rgba(43, 43, 43, 0.8);
+    border: 1px solid rgba(57, 255, 136, 0.12);
+    border-radius: 16px;
+    padding: 28px 36px;
+    margin-top: 32px;
+}
+
+.italic-quote {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(234, 234, 234, 0.75) !important;
+}
+
+/* ─── SECTION 2: How Detection Works ─── */
+.process-section {
+    padding: 80px 0;
+}
+
+.process-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.process-step-card {
+    background: #2B2B2B;
+    border: 1px solid rgba(57, 255, 136, 0.10);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.process-step-card:hover {
+    border-color: rgba(57, 255, 136, 0.30);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(57, 255, 136, 0.06);
+}
+
+.step-num-bg {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(57, 255, 136, 0.05);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.step-icon-wrap {
+    margin-bottom: 20px;
+}
+
+.icon-circle-gradient {
+    width: 48px;
+    height: 48px;
+    background: rgba(57, 255, 136, 0.12);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #39FF88;
+}
+
+.process-step-card h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #EAEAEA !important;
+    margin-bottom: 12px;
+}
+
+.process-step-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(234, 234, 234, 0.75) !important;
+    margin: 0;
+}
+
+/* ─── SECTION 3: Why Choose Us ─── */
+.parallax-section {
+    padding: 80px 0;
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.parallax-text h2 {
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: #EAEAEA !important;
+}
+
+.parallax-text p {
+    color: rgba(234, 234, 234, 0.80) !important;
+    margin-bottom: 24px;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.feature-2x2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.feature-item-alt {
+    background: #2B2B2B;
+    border: 1px solid rgba(57, 255, 136, 0.08);
+    border-left: 3px solid #39FF88;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.feature-item-alt.border-cobalt {
+    border-left-color: #9B5CF6;
+}
+
+.feature-item-alt:hover {
+    border-color: rgba(57, 255, 136, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(57, 255, 136, 0.05);
+}
+
+.feature-item-alt h5 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #EAEAEA !important;
+    margin-bottom: 8px;
+}
+
+.feature-item-alt p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(234, 234, 234, 0.75) !important;
+    margin: 0;
+}
+
+/* ─── SECTION 4: Stats ─── */
+.stats-section {
+    padding: 80px 0;
+}
+
+.stats-counter-strip {
+    background: #2B2B2B !important;
+    border: 1px solid rgba(57, 255, 136, 0.10) !important;
+    border-radius: 20px;
+    padding: 48px 40px;
+}
+
+.stat-counter-item {
+    position: relative;
+}
+
+/* Divider between stats */
+.col-md-4:not(:last-child) .stat-counter-item::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60px;
+    background: rgba(234, 234, 234, 0.08);
+}
+
+.stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #39FF88 !important;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(234, 234, 234, 0.45) !important;
+}
+
+/* ─── SECTION 5: Team ─── */
+.team-section {
+    padding: 80px 0;
+}
+
+.team-grid-boxed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.team-profile-card {
+    background: #2B2B2B;
+    border: 1px solid rgba(57, 255, 136, 0.08);
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-profile-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(57, 255, 136, 0.30);
+    box-shadow: 0 16px 40px rgba(57, 255, 136, 0.06);
+}
+
+.avatar-ring {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(57, 255, 136, 0.2);
+    padding: 3px;
+    background: rgba(57, 255, 136, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+.team-profile-card:hover .avatar-ring {
+    border-color: #39FF88;
+}
+
+.avatar-ring img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: grayscale(15%);
+    transition: filter 0.4s ease;
+}
+
+.team-profile-card:hover .avatar-ring img {
+    filter: grayscale(0%);
+}
+
+.team-profile-card h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #EAEAEA !important;
+    margin-bottom: 6px;
+}
+
+.role-badge-small {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #39FF88 !important;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+    .why-choose-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 360px;
+        max-height: none;
+        padding: 100px 0 60px;
+    }
+
+    .process-grid-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-2x2-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid-boxed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid-boxed {
+        grid-template-columns: 1fr;
+    }
+}
+
+section:last-of-type {
+    padding-bottom: 80px;
+    margin-bottom: 0 !important;
+}

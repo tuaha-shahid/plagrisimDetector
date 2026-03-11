@@ -17,5 +17,5 @@ export class PlagService {
     const requestData = { data: model.plagContent };
     return this.httpClient.post<PlagiarismCheckResult>(environment.apiUrl + '/api/checkPlagirism', requestData);
   }
-  
+
 }

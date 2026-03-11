@@ -1,175 +1,252 @@
+<main class="home-container">
+  <!-- Canvas Background for Particles -->
+  <canvas #particleCanvas class="hero-canvas"></canvas>
 
-
-
-
-
-<div class="container my-5 p-4 shadow-sm rounded ">
-  <!-- Form Section -->
-
-  <div>
-    <form [formGroup]="form">
-      <div class="mb-4">
-        <label for="exampleFormControlTextarea1" class="form-label fs-1 fw-bold text-center d-flex justify-content-center">
-          <span *ngIf="isBrowser" >Check Plagiarism</span>
-        </label>
-        <div  class="fs-5 d-flex justify-content-center">Please avoid entering the following characters in your text</div>
-          <div  class="fs-4 d-flex justify-content-center mb-4">
-          <span *ngIf="isBrowser" >(&),(<),(>),("),('),(\)</span>
-          
-          </div>
-        
-         <div class="form-group">
-          <textarea id="customTextarea" class="form-control custom-textarea border-dark"  formControlName="plagContent"
-          rows="8"
-          placeholder="Enter your text here..."></textarea>
-          @if(getLength()){
-            <div  class="fs-5 d-flex justify-content-center my-2">Enter maximum 
-              <span  class="mx-2"> 1000 </span>
-              characters </div>
-          }
-         
-        </div>
-        
-      </div>
-      <div class="d-flex justify-content-center">
-        <button class="animated-btn px-4" (click)="checkPlagirism()" [disabled]="form.invalid">Check Plagiarism</button>
-
-      </div>
-    </form>
-  </div>
-
-
-  <!-- Loading Spinner -->
-  <div *ngIf="isLoading" class="loading-overlay d-flex justify-content-center align-items-center">
-    <div class="loader"></div>
-  </div>
-  <div class="container mt-5" *ngIf="plagResult && !isLoading">
-    <div class="text-center fs-4 text-dark mb-4 fw-medium text-dark">
-      <span *ngIf="isBrowser">Plagiarism Results</span>
-      </div>
-
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="ag-courses_item">
-            <a class="ag-courses-item_link text-decoration-none" >
-              <div class="ag-courses-item_bg"></div>
-              <div class="ag-courses-item_title text-center" >
-                Plagiarism Percentage
-              </div>
-              <div class="ag-courses-item_date-box text-center">
-                <span class="ag-courses-item_date fs-1">
-                  {{ displayedPlagPercent }}%
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
+  <!-- Section 1: Hero -->
+  <section class="hero-section d-flex align-items-center position-relative">
+    <!-- Visual Enhancements -->
+    <div class="hero-glow"></div>
+    <div class="hero-glow-bg"></div>
     
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="ag-courses_item">
-            <a class="ag-courses-item_link text-decoration-none">
-              <div class="ag-courses-item_bg"></div>
-              <div class="ag-courses-item_title text-center">
-                Unique Percentage
-              </div>
-              <div class="ag-courses-item_date-box text-center">
-                <span class="ag-courses-item_date fs-1">
-                  {{ displayedUniqPercent }}%
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-    
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="ag-courses_item">
-            <a class="ag-courses-item_link text-decoration-none">
-              <div class="ag-courses-item_bg"></div>
-              <div class="ag-courses-item_title text-center">
-                Paraphrase Percentage
-              </div>
-              <div class="ag-courses-item_date-box text-center">
-                <span class="ag-courses-item_date fs-1">
-                  {{ displayPhrasPercent }}%
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
+    <!-- Floating Badges -->
+    <div class="floating-badge badge-1">
+      <lucide-icon name="shield-check" size="16"></lucide-icon>
+      <span>99.4% Accuracy Rate</span>
+    </div>
+    <div class="floating-badge badge-2">
+      <lucide-icon name="database" size="16"></lucide-icon>
+      <span>1B+ Sources Indexed</span>
+    </div>
+    <div class="floating-badge badge-3">
+      <lucide-icon name="clock" size="16"></lucide-icon>
+      <span>Results in Seconds</span>
+    </div>
+         <div class="floating-badge badge-4">
+      <lucide-icon name="shield-check" size="16"></lucide-icon>
+      <span>Trusted by {{ displayedUsers }}K+ Users</span>
+    </div>
+    <div class="container text-center hero-content position-relative">
+      <div class="trusted-badge mb-4">
+        <lucide-icon name="shield-check" size="16" class=""></lucide-icon>
+        Trusted by <span class="counter-value">{{ displayedUsers }}</span>K+ Users
+      </div>
+      
+      <h1 class="hero-title mb-4 gradient-text" #heroTitle>
+        <span class="hero-title-wrapper">AI Plagiarism Detection</span>
+      </h1>
+      
+      <p class="hero-sub h5 text-secondary fw-normal mb-5 mx-auto opacity-80" style="max-width: 700px;">
+        Advanced semantic analysis and real-time internet comparison to protect your academic and professional integrity.
+      </p>
+      
+      <div class="hero-btns d-flex gap-3 justify-content-center">
+        <button class="btn-primary" (click)="scrollToInput()">
+          <span  >Get Started Now</span>
+          <lucide-icon name="chevron-right" size="16" class="ms-2"></lucide-icon>
+        </button>
+        <button class="btn-secondary" routerLink="/services">Explore Plans</button>
       </div>
     </div>
-    
-  <!-- Results Section -->
-  
-    
-    <!-- <div class="row text-center mb-4">
-      <div class="col-md-4 mb-3">
-        <div class="fw-bold text-muted">Plagiarism Percentage:</div>
-        <div class="displayed-percentage fs-5 text-danger">{{ displayedPlagPercent }}%</div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="fw-bold text-muted">Unique Percentage:</div>
-        <div class="displayed-percentage fs-5 text-success">{{ displayedUniqPercent }}%</div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="fw-bold text-muted">Paraphrase Percentage:</div>
-        <div class="displayed-percentage fs-5 text-warning">{{ displayPhrasPercent}}%</div>
-      </div>
-    </div> -->
+  </section>
 
-    <!-- Sources Section -->
-    <div *ngIf="plagResult.sources.length">
-      <h6 class="text-dark fs-4 fw-medium mt-4">
-        <span *ngIf="isBrowser" >Sources</span>
-        </h6>
-      <ul class="list-unstyled">
-        <li *ngFor="let source of plagResult.sources" class="mb-2">
-          <a [href]="source.link" class="forLink text-decoration-none text-break fs-5" target="_blank">{{ source.link }}</a>
-          - <span class="fw-bold">{{ source.percent }}% match</span>
-        </li>
-      </ul>
-    </div>
-
-
-    
-    
-    
-    <ng-template #noDetails>
-      <div class="text-center">No details available</div>
-    </ng-template>
-    
-    <!-- Details Section -->
-    <div *ngIf="plagResult.details.length > 0">
-      <div class="text-center fs-4 text-dark mb-4 fw-medium text-dark">
-        <span *ngIf="isBrowser" >Details</span>
+  <!-- Section 2: Input Card -->
+  <!-- Section 2: Input Area -->
+  <section class="scan-section py-5" #inputCard>
+    <div class="container d-flex justify-content-center">
+      <div class="glass-card input-section-card mx-auto" style="max-width: 900px; width: 100%;">
+        <div class="card-header p-4 d-flex justify-content-between align-items-center border-bottom border-opacity-10">
+          <div class="d-flex align-items-center gap-3">
+            <div class="header-icon-box">
+              <lucide-icon name="zap" size="18" class="text-primary"></lucide-icon>
+            </div>
+            <div>
+              <h5 class="m-0 text-white font-syne text-uppercase letter-spacing-1">Originality Scanner</h5>
+              <p class="m-0 text-muted small">Deep scan up to 5,000 words</p>
+            </div>
+          </div>
+          <button class="btn-clear-text" (click)="clearText()" *ngIf="form.value.plagContent">
+            <lucide-icon name="trash-2" size="14" class="me-1"></lucide-icon>
+            Clear All
+          </button>
         </div>
-      <!-- <h5 class="text-primary fs-4 text-center mt-4">Details:</h5> -->
-      <div class="row">
-        <div class="col-12 col-md-6">
-      <h6 class="text-center my-2 fs-4">Unique Content</h6>
 
-          <ul *ngIf="isBrowser"  class="list-unstyled border border-secondary p-2">
-            <ng-container *ngFor="let source of plagResult.details">
-              <li *ngIf="source.unique" class="forTrue mb-2">
-                {{ source.query }}
-              </li>
-            </ng-container>
-          </ul>
+        <div class="card-body p-0 position-relative">
+          <form [formGroup]="form" class="position-relative">
+            <div class="textarea-wrapper" [class.dragging]="isDragging" 
+                 (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+              <textarea 
+                formControlName="plagContent"
+                placeholder="Paste your content here or drag and drop a file..."
+                class="scan-textarea"
+                #textarea
+              ></textarea>
+              <div class="highlight-overlay" [innerHTML]="highlightedText" *ngIf="!isLoading && plagResult"></div>
+            </div>
+          </form>
         </div>
-        <div class="col-12 col-md-6">
-      <h6 class="  text-center my-2 fs-4">Plagrised Content</h6>
 
-          <ul *ngIf="isBrowser"  class="list-unstyled border border-secondary p-2">
+        <!-- Scan Card Bottom Toolbar -->
+        <div class="card-footer p-4 scan-toolbar d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+          <div class="toolbar-left d-flex flex-column gap-2" style="min-width: 140px;">
+            <div class="word-count-text small text-secondary fw-600">
+              <span class="text-primary">{{ (form.value.plagContent?.split(' ').length || 0) | number }}</span> / 5,000 words
+            </div>
+            <div class="word-bar-track" style="width: 120px; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px;">
+              <div class="word-bar-fill" [style.width.%]="((form.value.plagContent?.split(' ').length || 0) / 5000) * 100" style="height: 100%; background: #00C2FF; border-radius: 2px;"></div>
+            </div>
+          </div>
+
+          <div class="toolbar-right d-flex gap-3 align-items-center w-100 w-md-auto">
+            <button type="button" class="btn-secondary flex-grow-1" (click)="triggerFileInput()">
+              <lucide-icon name="upload" size="16" class="me-2"></lucide-icon>
+              Upload Document
+            </button>
+            <input type="file" id="fileInput" class="d-none" (change)="onFileSelected($event)" accept=".txt,.doc,.docx,.pdf">
             
-            <ng-container *ngFor="let source of plagResult.details">
-              <li *ngIf="!source.unique" class="forFalse mb-2">
-                {{ source.query }}
-              </li>
-            </ng-container>
-          </ul>
+            <button type="button" class="btn-primary flex-grow-1" (click)="checkPlagiarism()" [disabled]="isLoading || (form.value.plagContent?.length || 0) < 10">
+              <span *ngIf="!isLoading">SCAN CONTENT</span>
+              <div *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></div>
+              <span *ngIf="isLoading">ANALYZING...</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+
+  <!-- Section 3: Results -->
+  <section class="results-section py-5" *ngIf="plagResult" id="results" style="scroll-margin-top: 100px;">
+    <div class="container d-flex justify-content-center">
+      <div class="result-card-animate glass-card p-4 p-md-5 mx-auto" style="max-width: 1000px; width: 100%;">
+        <div class="row g-5 align-items-center">
+          <!-- Left: Circular Progress -->
+          <div class="col-lg-4 text-center border-lg-end border-light border-opacity-10">
+            <h5 class="mb-5 text-accent font-syne">Originality Report</h5>
+            <div class="progress-ring-wrapper mx-auto mb-4">
+              <svg class="progress-ring" width="180" height="180">
+                <circle class="progress-ring-bg" cx="90" cy="90" r="80" stroke="rgba(255,255,255,0.05)" stroke-width="8" fill="transparent"/>
+                <circle class="progress-ring-circle" 
+                  [attr.stroke]="normOriginal >= 80 ? '#00E5A0' : (normOriginal >= 50 ? '#FFB547' : '#FF4D6A')" 
+                  cx="90" cy="90" r="80"
+                  stroke-width="8" 
+                  stroke-linecap="round"
+                  fill="transparent"
+                  style="stroke-dasharray: 502; stroke-dashoffset: 502; transform: rotate(-90deg); transform-origin: center;"
+                />
+              </svg>
+              <div class="progress-ring-content">
+                <span class="score-value" style="font-size: 2.5rem; font-weight: 800; display: block; color: #fff;">{{ normOriginal }}%</span>
+                <span class="score-label" style="font-size: 0.75rem; color: #8BA3C7; letter-spacing: 0.1em;">TRUST SCORE</span>
+              </div>
+            </div>
+            <div class="badge-status mx-auto" [ngClass]="{
+              'status-safe': normOriginal >= 80,
+              'status-warning': normOriginal >= 50 && normOriginal < 80,
+              'status-danger': normOriginal < 50
+            }">
+              {{ normOriginal >= 80 ? 'SAFE DOCUMENT' : (normOriginal >= 50 ? 'REVIEW NEEDED' : 'ACTION REQUIRED') }}
+            </div>
+          </div>
+
+          <!-- Right: Score Bars & Details -->
+          <div class="col-lg-8">
+            <div class="score-details-list">
+              <div class="score-row mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="d-flex align-items-center gap-2"><div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #00E5A0;"></div> Original Content</span>
+                  <span class="fw-bold text-white">{{ normOriginal }}%</span>
+                </div>
+                <div class="score-bar-track" style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
+                  <div class="score-bar-fill" id="bar-original" [style.width.%]="normOriginal" style="height: 100%; background: linear-gradient(90deg, #00E5A0, #00C2FF); border-radius: 4px;"></div>
+                </div>
+              </div>
+
+              <div class="score-row mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="d-flex align-items-center gap-2"><div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #FFB547;"></div> AI-Generated</span>
+                  <span class="fw-bold text-white">{{ normAI }}%</span>
+                </div>
+                <div class="score-bar-track" style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
+                  <div class="score-bar-fill" id="bar-ai" [style.width.%]="normAI" style="height: 100%; background: #FFB547; border-radius: 4px;"></div>
+                </div>
+              </div>
+
+              <div class="score-row mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="d-flex align-items-center gap-2"><div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #FF4D6A;"></div> Matched Sources</span>
+                  <span class="fw-bold text-white">{{ normMatched }}%</span>
+                </div>
+                <div class="score-bar-track" style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
+                  <div class="score-bar-fill" id="bar-matched" [style.width.%]="normMatched" style="height: 100%; background: #FF4D6A; border-radius: 4px;"></div>
+                </div>
+              </div>
+
+              <div class="result-actions d-flex flex-wrap gap-3 mt-5">
+                <button class="btn-primary-glow flex-grow-1 py-3">
+                  <lucide-icon name="file-text" size="18" class="me-2"></lucide-icon>
+                  VIEW FULL REPORT
+                </button>
+                <button class="btn-secondary flex-grow-1 py-3">
+                  <lucide-icon name="download" size="18" class="me-2"></lucide-icon>
+                  Download PDF
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-4 border-top border-light border-opacity-10">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h6 class="m-0 text-white font-syne">Verified Matches Found ({{ plagResult.matches.length }})</h6>
+            <button class="btn-action-icon" (click)="copyToClipboard(form.value.plagContent)" title="Copy Original Text">
+              <lucide-icon name="copy" size="16"></lucide-icon>
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-custom m-0">
+              <thead>
+                <tr>
+                  <th style="min-width: 250px;">Source URL / Domain</th>
+                  <th class="text-center" style="min-width: 120px;">Confidence</th>
+                  <th class="text-end" style="min-width: 100px;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let match of plagResult.matches" class="table-row-animate">
+                  <td>
+                    <div class="source-info d-flex align-items-center gap-2">
+                      <lucide-icon name="globe" size="14" class="text-secondary"></lucide-icon>
+                      <span class="source-url text-truncate" style="max-width: 400px;">{{ match.source }}</span>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <span class="confidence-badge" style="background: rgba(0, 194, 255, 0.1); border: 1px solid rgba(0, 194, 255, 0.2); color: #00C2FF; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">{{ match.percentage ? match.percentage + '%' : '—' }}</span>
+                  </td>
+                  <td class="text-end">
+                    <button class="btn-compare-mini" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #8BA3C7; border-radius: 6px; padding: 4px 12px; font-size: 0.75rem; transition: all 0.3s ease;">COMPARE</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: CTA Banner -->
+  <section class="cta-banner py-5 my-5 position-relative overflow-hidden">
+    <div class="cta-mesh"></div>
+    <div class="cta-scanning-line"></div>
+    <div class="container py-4 text-center position-relative" style="z-index: 2;">
+      <h2 class="h2 mb-4 text-white">Scale Your Content Integrity</h2>
+      <p class="text-secondary mb-5 mx-auto opacity-80" style="max-width: 550px;">
+        Join educational institutions and content teams using our specialized enterprise API for bulk verification.
+      </p>
+      <div class="d-flex gap-3 justify-content-center">
+        <button class="btn-primary" routerLink="/contact">Request API Access</button>
+        <button class="btn-secondary">View Documentation</button>
+      </div>
+    </div>
+  </section>
+</main>

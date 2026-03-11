@@ -1,0 +1,96 @@
+<main class="why-us-page position-relative overflow-hidden">
+  <!-- Section 1: Hero -->
+  <section class="why-hero position-relative">
+    <div class="perspective-grid"></div>
+    <div class="container text-center why-hero-content position-relative" style="z-index: 2;">
+      <span class="section-label">INSTITUTIONAL STANDARD</span>
+      <h1 class="hero-title mb-4" #heroTitle>
+        Why Leading Institutions Choose<br>Plagiarism Guard
+      </h1>
+      <p class="hero-desc">
+        The most reliable semantic analysis engine for academic integrity and professional content verification.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Advantages Grid -->
+  <section class="advantages-section py-6">
+    <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label">SUPERIOR TECH</span>
+      <h2 class="mb-3">Unmatched Advantages</h2>
+    </div>
+    
+    <div class="advantage-grid">
+      <div class="advantage-card" *ngFor="let adv of advantages.slice(0, 3)">
+        <div class="adv-icon">
+          <lucide-icon [name]="adv.icon" size="24"></lucide-icon>
+        </div>
+        <h4 class="adv-title">{{ adv.title }}</h4>
+        <p class="adv-desc">{{ adv.desc }}</p>
+        <span class="metric-badge">Industry Standard</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Scanning Pipeline -->
+  <section class="pipeline-section-advanced py-6">
+    <div class="container text-center">
+      <span class="section-label">PROCESSING FLOW</span>
+      <h2 class="mb-5">The Neural <span class="text-accent">Pipeline</span></h2>
+      
+      <div class="pipeline-timeline">
+        <div class="pipeline-step-alt" *ngFor="let step of pipeline; let i = index; let last = last">
+          <div class="step-circle" [class.is-last]="last">{{ last ? '' : i + 1 }}</div>
+          <div class="step-info text-start">
+            <h5 class="h6 fw-bold mb-1" style="color: #EAEAEA;">{{ step.step }}</h5>
+            <p class="text-secondary mb-0" style="font-size: 0.875rem;">{{ step.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Testimonials Cards -->
+  <section class="testimonials-section py-6">
+    <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label">PROVEN RESULTS</span>
+      <h2 class="mb-3">Trusted by Experts</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let t of testimonials; let i = index">
+        <div class="quote-mark">“</div>
+        <p class="testimonial-text">"{{ t.text }}"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            {{ t.name.charAt(0) }}
+          </div>
+          <div class="author-details">
+            <h5 class="author-name">{{ t.name }}</h5>
+            <span class="author-role">{{ t.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Banner -->
+  <section class="cta-banner-section py-6 mb-5">
+    <div class="container">
+    <div class="scale-cta-banner text-center position-relative">
+      <h2 class="mb-4" style="color: #EAEAEA;">Scale Your Content Integrity</h2>
+      <p class="hero-desc mx-auto" style="max-width: 500px; margin-bottom: 32px;">
+        Integrate the industry's most accurate neural network into your platform today.
+      </p>
+      <button class="btn-primary-glow d-inline-flex align-items-center" routerLink="/dashboard">
+        Start Scanning Now
+        <lucide-icon name="arrow-right" size="18" class="ms-2 cta-arrow" #ctaArrow></lucide-icon>
+      </button>
+    </div>
+    </div>
+  </section>
+</main>

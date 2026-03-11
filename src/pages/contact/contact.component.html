@@ -1,0 +1,132 @@
+<main class="contact-container position-relative overflow-hidden">
+  <!-- Section 1: Hero Section -->
+  <section class="contact-hero position-relative d-flex align-items-center">
+    <div class="container text-center contact-hero-content position-relative" style="z-index: 2;">
+      <span class="section-label mb-3">SUPPORT LOOP</span>
+      <h1 class="hero-title gradient-text mb-4" #heroTitle>Contact Our Team</h1>
+      <p class="hero-subtitle h5 text-secondary fw-normal opacity-90 mx-auto" style="max-width: 600px;">
+        Have questions about plagiarism detection or AI content verification? Our team is here to help.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Contact Info Cards -->
+  <section class="contact-info-section py-6">
+    <div class="container contact-info-grid">
+      <div class="info-card-wrap">
+        <div class="contact-info-card">
+          <div class="info-icon-box mx-auto mb-4">
+            <lucide-icon name="mail" size="24"></lucide-icon>
+          </div>
+          <span class="info-label">Direct Email</span>
+          <h4 class="info-title">Support Team</h4>
+          <a href="mailto:support&#64;plagiarismguard.ai" class="info-value">support&#64;plagiarismguard.ai</a>
+        </div>
+      </div>
+      <div class="info-card-wrap">
+        <div class="contact-info-card">
+          <div class="info-icon-box mx-auto mb-4">
+            <lucide-icon name="briefcase" size="24"></lucide-icon>
+          </div>
+          <span class="info-label">Business</span>
+          <h4 class="info-title">Partnerships</h4>
+          <a href="mailto:partners&#64;plagiarismguard.ai" class="info-value">partners&#64;plagiarismguard.ai</a>
+        </div>
+      </div>
+      <div class="info-card-wrap">
+        <div class="contact-info-card">
+          <div class="info-icon-box mx-auto mb-4">
+            <lucide-icon name="map-pin" size="24"></lucide-icon>
+          </div>
+          <span class="info-label">Location</span>
+          <h4 class="info-title">Headquarters</h4>
+          <span class="info-value">Global Remote Team</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Contact Form -->
+<section class="contact-form-section">
+  <div class="contact-form-card">
+    <div class="text-center mb-5">
+      <span class="section-label mb-2 d-block">Transmission</span>
+      <h2 class="h3 text-white mb-2">Send Us a Message</h2>
+      <p class="text-secondary opacity-75 m-0 lh-base">We'll get back to you within 24 hours.</p>
+    </div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="advanced-contact-form">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" formControlName="fullName" class="cyber-input" placeholder="Enter your full name" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" formControlName="email" class="cyber-input" placeholder="Enter your email" required>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input type="text" formControlName="subject" class="cyber-input" placeholder="What is this regarding?" required>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label class="form-label">Message Body</label>
+            <textarea formControlName="message" class="cyber-input" rows="6" placeholder="Describe your inquiry in detail..." required></textarea>
+          </div>
+        </div>
+        <div class="col-12 mt-2">
+          <button type="submit" class="btn-submit-glow w-100 position-relative" [disabled]="isSubmitting">
+            <span [class.opacity-0]="isSubmitting">Send Transmission</span>
+            <div class="spinner-border spinner-border-sm position-absolute" role="status" *ngIf="isSubmitting" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="faq-inner-wrap d-flex flex-column align-items-center">
+    <div class="text-center mb-5">
+      <span class="section-label">Knowledge Base</span>
+      <h2 class="h3 gradient-text-simple mb-3">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="advanced-faq-container">
+      <div *ngFor="let faq of faqs; let i = index" class="faq-accordion-item" [class.active]="faq.open">
+        <div class="faq-q-row p-4" (click)="toggleFaq(i)">
+          <h5 class="faq-question-text mb-0">{{ faq.question }}</h5>
+          <div class="faq-arrow-icon" #faqArrow [class.rotated]="faq.open">
+            <lucide-icon name="chevron-down" size="18"></lucide-icon>
+          </div>
+        </div>
+        <div class="faq-a-body" #faqBody>
+          <div class="p-4 pt-0">
+            <p class="text-secondary small mb-0 lh-lg">{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Global CTA -->
+<section class="cta-section mb-5">
+  <div class="contact-cta-banner p-5 p-md-6 text-center">
+    <h2 class="h2 text-white mb-3">Start Verifying Your Content Today</h2>
+    <p class="cta-subtext mb-5 mx-auto">Experience the power of neural-network plagiarism detection.</p>
+    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+      <button class="btn-gradient-primary btn-wide" routerLink="/dashboard">Start Scan Now</button>
+      <button class="btn-outline-green btn-wide">View Pricing</button>
+    </div>
+  </div>
+</section>
+</main>

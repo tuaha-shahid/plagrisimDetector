@@ -1,41 +1,94 @@
-<header class="header_section">
-  <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg custom_nav-container">
-      <a class="navbar-brand" routerLink="/">
-        <span>Finexo</span>
-      </a>
-
-      <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-        <span class="toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" [ngClass]="{ 'show': isNavbarOpen }" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/') }">
-            <a class="nav-link" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/about') }">
-            <a class="nav-link" routerLink="/about">About</a>
-          </li>
-          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/services') }">
-            <a class="nav-link" routerLink="/services">Services</a>
-          </li>
-          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/why') }">
-            <a class="nav-link" routerLink="/why">Why Us</a>
-          </li>
-          <li class="nav-item" [ngClass]="{ 'active': activeRoute('/team') }">
-            <a class="nav-link" routerLink="/team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login"><i class="fa fa-user"></i> Login</a>
-          </li>
-          <form class="form-inline">
-            <button class="btn nav_search-btn" type="submit">
-              <i class="fa fa-search"></i>
-            </button>
-          </form>
-        </ul>
+<nav class="navbar-app" [class.scrolled]="isScrolled">
+  <div class="container-fluid px-4 px-md-5 h-100">
+    <div class="navbar-container h-100">
+      
+      <!-- NAVBAR LEFT: Logo -->
+      <div class="navbar-left">
+        <a routerLink="/" class="nav-brand">
+          <div class="brand-logo">
+            <lucide-icon name="shield-check" size="20"></lucide-icon>
+          </div>
+          <span class="brand-name">Plagiarism<span class="text-accent">Guard</span></span>
+        </a>
       </div>
-    </nav>
+
+      <!-- NAVBAR CENTER: Nav Links (Desktop) -->
+      <div class="navbar-center d-none d-lg-flex">
+        <div class="menu-links">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Dashboard</a>
+          <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+          
+          <div class="nav-item-dropdown" (mouseenter)="onHoverDropdown($event)" (mouseleave)="onLeaveDropdown($event)">
+            <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()" class="dropdown-trigger">
+              Services <lucide-icon name="chevron-down" size="14"></lucide-icon>
+            </a>
+            <div class="mega-dropdown">
+              <div class="dropdown-grid">
+                <a routerLink="/services" class="dropdown-item">
+                  <div class="item-icon"><lucide-icon name="graduation-cap" size="18"></lucide-icon></div>
+                  <div class="item-text">
+                    <h6>Academic Detection</h6>
+                    <span>Scan essays and theses</span>
+                  </div>
+                </a>
+                <a routerLink="/services" class="dropdown-item">
+                  <div class="item-icon"><lucide-icon name="cpu" size="18"></lucide-icon></div>
+                  <div class="item-text">
+                    <h6>AI Content Detection</h6>
+                    <span>Identify GPT-4, Claude patterns</span>
+                  </div>
+                </a>
+                <a routerLink="/services" class="dropdown-item">
+                  <div class="item-icon"><lucide-icon name="zap" size="18"></lucide-icon></div>
+                  <div class="item-text">
+                    <h6>API Access</h6>
+                    <span>Integrate into your workflow</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a routerLink="/why-us" routerLinkActive="active" (click)="closeMenu()">Why Us</a>
+          
+        
+
+          <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+        </div>
+      </div>
+
+      <!-- NAVBAR RIGHT: Actions & Mobile Toggle -->
+      <div class="navbar-right">
+        <div class="menu-actions d-none d-lg-flex">
+          <button class="btn-gradient-nav" (click)="closeMenu()">Get Started</button>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="nav-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile Side Menu -->
+      <div class="nav-mobile-menu" [class.open]="isMenuOpen">
+        <div class="mobile-menu-content">
+          <div class="mobile-links">
+            <a routerLink="/" (click)="closeMenu()">Dashboard</a>
+            <a routerLink="/about" (click)="closeMenu()">About</a>
+            <a routerLink="/services" (click)="closeMenu()">Services</a>
+            <a routerLink="/why-us" (click)="closeMenu()">Why Us</a>
+            <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+          </div>
+          <div class="mobile-actions">
+              <button class="btn-gradient-nav" (click)="closeMenu()">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</header>
+</nav>
+
+

@@ -1,0 +1,122 @@
+<main class="about-container position-relative overflow-hidden">
+  <!-- Floating Background Orb -->
+  <div class="floating-orb"></div>
+
+  <!-- Section 1: Hero — Compact -->
+  <section class="about-hero">
+    <div class="container text-center about-hero-content position-relative" style="z-index: 2;">
+      <span class="section-label">ABOUT PLAGIARISMGUARD</span>
+      <h1 class="hero-title gradient-text mb-4" #heroTitle>
+        Protecting Integrity In The<br>Era of Artificial Intelligence
+      </h1>
+      
+      <!-- Mission Quote -->
+      <div class="mission-quote-card mx-auto" style="max-width: 580px;">
+        <p class="mb-0 italic-quote">
+          "Maintaining authenticity should not be a challenge in the age of AI.
+          We bridge the gap between creation and verification with unmatched precision."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: How Detection Works -->
+  <section class="process-section">
+    <div class="container">
+      <div class="text-center mb-0">
+        <span class="section-label">THE PROCESS</span>
+        <h2 class="gradient-text">How Detection Works</h2>
+      </div>
+
+      <div class="process-grid-wrapper">
+        <div class="process-step-card" *ngFor="let step of steps; let i = index">
+          <div class="step-num-bg">0{{ i + 1 }}</div>
+          <div class="step-icon-wrap">
+            <div class="icon-circle-gradient">
+              <lucide-icon [name]="step.icon" size="20"></lucide-icon>
+            </div>
+          </div>
+          <h4 class="text-uppercase">{{ step.title }}</h4>
+          <p>{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Why Choose Us -->
+  <section class="parallax-section">
+    <div class="container">
+      <div class="why-choose-grid">
+        <!-- Left: Text -->
+        <div class="parallax-text">
+          <span class="section-label">DIFFERENTIATION</span>
+          <h2>Why Choose<br>PlagiarismGuard?</h2>
+          <p>
+            We combine cutting-edge AI research with a user-centric approach to provide 
+            the most reliable detection suite on the market. Our systems learn from 
+            trillions of parameters to stay ahead of synthetic content evolution.
+          </p>
+          <button class="btn-primary-glow">Experience Accuracy</button>
+        </div>
+
+        <!-- Right: 2x2 Feature Grid -->
+        <div class="parallax-grid">
+          <div class="feature-2x2-grid">
+            <div class="feature-item-alt border-cyan">
+              <h5>AI Precision</h5>
+              <p>99.9% detection rate for AI and human-copied content.</p>
+            </div>
+            <div class="feature-item-alt border-cobalt">
+              <h5>Instant Scan</h5>
+              <p>Results delivered in seconds, even for complex documents.</p>
+            </div>
+            <div class="feature-item-alt border-cobalt">
+              <h5>Deep Database</h5>
+              <p>Indexed sources from global journals and repositories.</p>
+            </div>
+            <div class="feature-item-alt border-cyan">
+              <h5>Academic Verified</h5>
+              <p>Trusted by top-tier universities for integrity checks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-counter-strip">
+        <div class="row g-4 text-center">
+          <div class="col-md-4" *ngFor="let s of stats">
+            <div class="stat-counter-item">
+              <span class="stat-number">{{ s.value }}</span>
+              <span class="stat-label">{{ s.label }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Team -->
+  <section class="team-section">
+    <div class="container">
+      <div class="text-center mb-0">
+        <span class="section-label">THE COLLECTIVE</span>
+        <h2>Architects of Transparency</h2>
+      </div>
+
+      <div class="team-grid-boxed">
+        <div class="team-profile-card" *ngFor="let member of team">
+          <div class="avatar-ring">
+            <img [src]="member.image" [alt]="member.name">
+          </div>
+          <h5>{{ member.name }}</h5>
+          <div class="role-badge-small">{{ member.role }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

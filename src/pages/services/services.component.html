@@ -1,0 +1,98 @@
+<main class="services-page position-relative overflow-hidden">
+  <!-- Section 1: Hero -->
+  <section class="services-hero">
+    <div class="container text-center services-hero-content position-relative" style="z-index: 2;">
+      <span class="section-label mb-3">ENTERPRISE SOLUTIONS</span>
+      <h1 class="hero-title mb-4" #heroTitle style="color: #EAEAEA;">
+        Comprehensive Integrity Solutions
+      </h1>
+      <p class="hero-desc text-secondary mx-auto mb-0" style="max-width: 600px;">
+        Empowering academia and industry with state-of-the-art detection technology tailored to your specific needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Service Grid -->
+<section class="services-grid-section">
+  <div class="services-grid-wrapper">
+    <div class="service-card-alt" *ngFor="let service of services">
+      <div class="service-icon-circle">
+        <lucide-icon [name]="service.icon" size="24"></lucide-icon>
+      </div>
+      <h3 class="service-card-title">{{ service.title }}</h3>
+      <p class="service-card-desc">{{ service.desc }}</p>
+      <a href="javascript:void(0)" class="learn-more-link">
+        Learn More <span class="ms-1">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+  <!-- Section 3: Pricing Matrix -->
+<section class="pricing-section position-relative">
+  <div class="pricing-header-wrap text-center ">
+    <span class="section-label">THE MATRIX</span>
+    <h2 class="mb-3 text-white">Choose Your Plan</h2>
+    <p class="text-secondary opacity-75 mx-auto" style="max-width: 500px;">
+      Scale your detection capabilities as your needs grow. Predictable pricing for maximum transparency.
+    </p>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- Free Plan -->
+    <div class="pricing-card free-card">
+      <h4 class="plan-name">Free Plan</h4>
+      <div class="price-val">$0<span class="price-suffix">/mo</span></div>
+      <ul class="p-features">
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>1,000 words per scan</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Deep web scan</span></li>
+        <li class="inactive"><span class="dash">—</span> <span>No source reports</span></li>
+        <li class="inactive"><span class="dash">—</span> <span>No API access</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Email support</span></li>
+      </ul>
+      <button class="btn-pricing btn-ghost">Get Started</button>
+    </div>
+
+    <!-- Pro Plan -->
+    <div class="pricing-card pro-card highlighted-plan">
+      <div class="badge-pop">Most Popular</div>
+      <h4 class="plan-name">Pro Plan</h4>
+      <div class="price-val text-neon">$29<span class="price-suffix">/mo</span></div>
+      <ul class="p-features">
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>25,000 words per scan</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Deep web scan</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Full source reports</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Limited API access</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Priority support</span></li>
+      </ul>
+      <button class="btn-pricing btn-solid">Select Pro</button>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="pricing-card enterprise-card">
+      <h4 class="plan-name text-purple">Enterprise</h4>
+      <div class="price-val">Custom<span class="price-suffix">/mo</span></div>
+      <ul class="p-features">
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Unlimited words</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Deep web scan</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Full source reports</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>Full API Access</span></li>
+        <li class="active"><lucide-icon name="check" size="16"></lucide-icon> <span>24/7 Dedicated help</span></li>
+      </ul>
+      <button class="btn-pricing btn-solid">Contact Sales</button>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="cta-section py-6 mb-5">
+  <div class="enterprise-cta-banner position-relative">
+    <div class="cta-content text-center position-relative" style="z-index: 2;">
+      <h2 class="mb-4 text-white">Need a Custom Enterprise Solution?</h2>
+      <p class="text-secondary mb-5 mx-auto" style="max-width: 500px; opacity: 0.8;">
+        Join the elite institutions securing their content integrity with our private server solutions and direct database integrations.
+      </p>
+      <button class="btn-contact-sales">Contact Sales Team</button>
+    </div>
+  </div>
+</section>
+</main>

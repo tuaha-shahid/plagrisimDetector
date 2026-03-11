@@ -24,6 +24,8 @@
     "@vercel/analytics": "^1.5.0",
     "bootstrap": "^5.3.3",
     "express": "^4.18.2",
+    "gsap": "^3.14.2",
+    "lucide-angular": "^0.577.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

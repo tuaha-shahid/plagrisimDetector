@@ -1,0 +1,106 @@
+:host {
+    display: block;
+    background: #1F1F1F;
+}
+
+.footer-wrapper {
+    background: #161616;
+    border-top: 1px solid rgba(57, 255, 136, 0.08);
+    position: relative;
+    padding: 80px 0 30px;
+    margin-top: 0 !important;
+}
+
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #EAEAEA;
+    letter-spacing: -0.02em;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: #39FF88;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1F1F1F;
+    box-shadow: 0 0 10px rgba(57, 255, 136, 0.25);
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(234, 234, 234, 0.5) !important;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #39FF88 !important;
+    padding-left: 4px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(57, 255, 136, 0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(234, 234, 234, 0.5) !important;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(57, 255, 136, 0.1);
+}
+
+.social-links a:hover {
+    background: #39FF88;
+    color: #1F1F1F !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(57, 255, 136, 0.3);
+}
+
+.footer-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #EAEAEA !important;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(234, 234, 234, 0.06);
+    margin-top: 40px;
+    padding-top: 24px;
+}
+
+p,
+span,
+li,
+label,
+a {
+    color: rgba(234, 234, 234, 0.5);
+}

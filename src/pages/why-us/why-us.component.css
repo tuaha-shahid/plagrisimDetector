@@ -1,0 +1,348 @@
+:host {
+    display: block;
+    --text-primary: #EAEAEA;
+    --text-secondary: rgba(234, 234, 234, 0.65);
+    --text-muted: rgba(234, 234, 234, 0.45);
+    --text-accent: #39FF88;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #EAEAEA !important;
+}
+
+p,
+span,
+li,
+label {
+    color: rgba(234, 234, 234, 0.65) !important;
+}
+
+.text-accent {
+    color: #39FF88 !important;
+}
+
+.why-us-page {
+    background: #1F1F1F;
+}
+
+/* ─── Global Centering & Spacing ─── */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+section {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.section-label {
+    color: #39FF88 !important;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ─── Hero Section ─── */
+.why-hero {
+    max-height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 50%, rgba(57, 255, 136, 0.05) 0%, transparent 65%);
+}
+
+.hero-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    margin: 0 16px 16px 16px;
+    line-height: 1.2;
+}
+
+.hero-desc {
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(234, 234, 234, 0.8) !important;
+}
+
+/* ─── Advantages Grid ─── */
+.advantage-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.advantage-card {
+    background: #2B2B2B;
+    border: 1px solid rgba(57, 255, 136, 0.12);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 calc(25% - 18px);
+    min-width: 265px;
+}
+
+.advantage-card:hover {
+    border-color: rgba(57, 255, 136, 0.35);
+    transform: translateY(-4px);
+}
+
+.adv-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(57, 255, 136, 0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #39FF88;
+    margin-bottom: 16px;
+}
+
+.adv-title {
+    color: #EAEAEA !important;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    text-transform: none;
+}
+
+.adv-desc {
+    color: rgba(234, 234, 234, 0.7) !important;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.metric-badge {
+    background: rgba(57, 255, 136, 0.1) !important;
+    color: #39FF88 !important;
+    font-size: 0.7rem;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ─── Neural Pipeline (Vertical Timeline) ─── */
+.pipeline-timeline {
+    max-width: 600px;
+    margin: 0 auto 48px auto;
+    text-align: left;
+    position: relative;
+    padding-left: 16px;
+}
+
+/* Continuous Vertical Line through all nodes */
+.pipeline-timeline::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    bottom: 56px;
+    /* stop short of bottom to prevent overhang */
+    left: 31px;
+    /* 16px padding + 16px half-circle */
+    width: 2px;
+    background: #39FF88;
+    z-index: 1;
+}
+
+.pipeline-step-alt {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #39FF88;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #39FF88 !important;
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: #1F1F1F;
+    flex-shrink: 0;
+}
+
+.step-circle.is-last {
+    background: #39FF88;
+    border: none;
+    box-shadow: 0 0 15px rgba(57, 255, 136, 0.4);
+}
+
+.step-info {
+    background: #2B2B2B;
+    border-radius: 12px;
+    padding: 20px 24px;
+    flex-grow: 1;
+    border: 1px solid rgba(234, 234, 234, 0.05);
+}
+
+/* ─── Testimonials ─── */
+.testimonials-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 48px auto 0;
+}
+
+.testimonial-card {
+    background: #2B2B2B;
+    border: 1px solid rgba(234, 234, 234, 0.06);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 calc(50% - 12px);
+    min-width: 320px;
+}
+
+.quote-mark {
+    font-size: 64px;
+    color: #39FF88;
+    opacity: 0.2;
+    line-height: 0;
+    font-family: serif;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.testimonial-text {
+    color: #EAEAEA !important;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7;
+    flex-grow: 1;
+    margin-bottom: 24px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    background: #39FF88;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1F1F1F !important;
+    font-weight: 800;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    color: #EAEAEA !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 0 0 2px 0;
+}
+
+.author-role {
+    color: rgba(234, 234, 234, 0.5) !important;
+    font-size: 0.8rem;
+}
+
+/* ─── Scale CTA Banner ─── */
+.scale-cta-banner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #2B2B2B, rgba(57, 255, 136, 0.04));
+    border: 1px solid rgba(57, 255, 136, 0.15);
+    border-radius: 20px;
+    padding: 64px 40px;
+}
+
+.btn-primary-glow {
+    background: #39FF88;
+    color: #1F1F1F !important;
+    border: none;
+    border-radius: 8px;
+    padding: 0 28px;
+    height: 44px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    box-shadow: 0 0 20px rgba(57, 255, 136, 0.25);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-primary-glow:hover {
+    box-shadow: 0 0 35px rgba(57, 255, 136, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 991px) {
+    .advantage-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .why-hero {
+        max-height: none;
+        padding: 100px 0;
+    }
+
+    .advantage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
