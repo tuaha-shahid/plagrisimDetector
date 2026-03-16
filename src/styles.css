@@ -277,4 +277,73 @@ section {
     }
 }
 
+/* ===========================================
+   GLOBAL MOBILE BUTTON RESPONSIVENESS
+   Fixes text overflow/wrapping on all pages
+=========================================== */
 
+/* Shared: No text wrapping for buttons */
+.btn-primary,
+.btn-primary-glow,
+.btn-secondary {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+
+    /* Reduce horizontal padding on medium mobile */
+    .btn-primary,
+    .btn-primary-glow {
+        padding: 0 20px;
+        font-size: 0.83rem;
+    }
+
+    .btn-secondary {
+        padding: 0 20px;
+        font-size: 0.83rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Small phones: further shrink padding */
+    .btn-primary,
+    .btn-primary-glow {
+        padding: 0 14px;
+        font-size: 0.8rem;
+        height: 40px;
+    }
+
+    .btn-secondary {
+        padding: 0 14px;
+        font-size: 0.8rem;
+        height: 40px;
+    }
+
+    /* Hero buttons stack full-width on tiny screens */
+    .hero-btns {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-secondary {
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    /* CTA banners: stack buttons */
+    .cta-banner .d-flex.gap-3,
+    section .d-flex.gap-3.justify-content-center {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-banner .btn-primary,
+    .cta-banner .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}

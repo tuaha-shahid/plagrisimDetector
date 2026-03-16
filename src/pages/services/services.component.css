@@ -369,6 +369,41 @@ section {
     }
 }
 
+/* Mobile button fixes */
+.btn-contact-sales {
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+
+    /* Services hero buttons: stack vertically */
+    .services-hero .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .services-hero .btn-primary,
+    .services-hero .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    /* Pricing card CTA buttons */
+    .pricing-card .btn-primary,
+    .pricing-card .btn-secondary {
+        width: 100%;
+    }
+
+    /* Contact sales button */
+    .btn-contact-sales {
+        padding: 0 14px;
+        font-size: 0.8rem;
+    }
+}
+
+
 
 .pricing-section {
     display: flex;
@@ -390,7 +425,8 @@ section {
 .pricing-card {
     width: 100%;
     max-width: 320px;
-    flex: 1 1 280px;   /* grow/shrink but min 280px */
+    flex: 1 1 280px;
+    /* grow/shrink but min 280px */
 }
 
 .cta-section {

@@ -375,3 +375,24 @@ section:last-of-type {
     padding-bottom: 80px;
     margin-bottom: 0 !important;
 }
+
+/* Mobile button fixes */
+@media (max-width: 480px) {
+
+    /* Hero and CTA buttons: stack and go full width */
+    .about-hero .d-flex,
+    .cta-section .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .about-hero .btn-primary,
+    .about-hero .btn-secondary,
+    .cta-section .btn-primary,
+    .cta-section .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}

@@ -346,3 +346,24 @@ h2 {
         grid-template-columns: 1fr;
     }
 }
+
+/* Mobile button fixes */
+@media (max-width: 480px) {
+
+    /* Why-us hero and CTA buttons: stack vertically */
+    .why-hero .d-flex,
+    .why-cta-section .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .why-hero .btn-primary,
+    .why-hero .btn-secondary,
+    .why-cta-section .btn-primary,
+    .why-cta-section .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}

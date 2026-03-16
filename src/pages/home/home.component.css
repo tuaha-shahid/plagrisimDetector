@@ -851,3 +851,57 @@ section:last-of-type {
         margin-top: 0;
     }
 }
+
+@media (max-width: 768px) {
+
+    /* Scan toolbar: stack the two buttons vertically */
+    .scan-toolbar {
+        align-items: stretch !important;
+    }
+
+    .scan-toolbar .toolbar-right {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .scan-toolbar .toolbar-right .btn-secondary,
+    .scan-toolbar .toolbar-right .btn-primary {
+        width: 100% !important;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    /* Result card action buttons */
+    .result-actions {
+        flex-direction: column !important;
+    }
+
+    .result-actions .btn-primary-glow,
+    .result-actions .btn-secondary {
+        width: 100% !important;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Small hero section paddings */
+    .hero-section {
+        padding: 60px 0 40px;
+    }
+
+    /* Scan card: tighten padding */
+    .input-section-card .card-footer {
+        padding: 1rem !important;
+    }
+
+    /* Toolbar word count + buttons */
+    .scan-toolbar {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .toolbar-left {
+        width: 100%;
+    }
+}

@@ -341,7 +341,35 @@ textarea.cyber-input {
     .info-card-wrap {
         flex: 0 1 100%;
     }
+
+    /* Contact form submit button: full width */
+    .btn-submit-form {
+        width: 100% !important;
+        justify-content: center;
+    }
 }
+
+/* Mobile button fixes */
+@media (max-width: 480px) {
+
+    /* Contact CTA section buttons */
+    .contact-cta-section .d-flex,
+    .start-verifying-section .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .contact-cta-section .btn-primary,
+    .contact-cta-section .btn-secondary,
+    .start-verifying-section .btn-primary,
+    .start-verifying-section .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
 
 .contact-form-section {
     display: flex;
