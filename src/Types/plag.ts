@@ -7,9 +7,11 @@ export interface PlagiarismCheckResult {
   metadata: {
     total_sentences: number;
     matched_sentences: number;
-    total_words: number;
   };
-  matches: Array<{ sentence: string; source: string; percentage: number }>;
+  matches: Array<{
+    sentence: string;
+    source: string;
+  }>;
   sources_list: string[];
   top_source: string;
 }

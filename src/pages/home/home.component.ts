@@ -31,9 +31,7 @@ export class HomeComponent implements AfterViewInit {
   plagResult?: PlagiarismCheckResult;
   displayedUsers = 0;
   
-  // Normalized percentages for UI summing to 100%
   normOriginal = 0;
-  normAI = 0;
   normMatched = 0;
   
   isLoading = false;
@@ -124,7 +122,10 @@ export class HomeComponent implements AfterViewInit {
     try {
       const tl = gsap.timeline({
         onComplete: () => {
-          gsap.set('.hero-title, .hero-sub, .hero-btns', { opacity: 1, visibility: 'visible' });
+          // Force all hero elements to final visible state when animation completes
+          gsap.set('.hero-title, .hero-sub, .hero-btns', { opacity: 1, visibility: 'visible', clearProps: 'transform' });
+          // Ensure input card is visible
+          gsap.set('.input-section-card', { opacity: 1, visibility: 'visible', clearProps: 'transform' });
         }
       });
       
@@ -152,14 +153,10 @@ export class HomeComponent implements AfterViewInit {
         scale: 0.8,
         duration: 0.5,
         ease: "back.out(1.2)"
-      }, '-=0.3')
-      .from('.input-section-card', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        clearProps: "opacity,transform"
-      }, '-=0.2');
+      }, '-=0.3');
+      // NOTE: .input-section-card is intentionally NOT animated.
+      // GSAP 'from' sets opacity:0 inline — scroll before animation = invisible card.
+      // The card uses CSS for its initial appearance instead.
 
       // ScrollTrigger for CTA
       gsap.from('.cta-banner', {
@@ -170,7 +167,8 @@ export class HomeComponent implements AfterViewInit {
         y: 60,
         opacity: 0,
         duration: 1.2,
-        ease: 'power3.out'
+        ease: 'power3.out',
+        clearProps: 'all'
       });
     } catch (e) {
       console.warn('GSAP Home Animation Failed:', e);
@@ -260,26 +258,14 @@ export class HomeComponent implements AfterViewInit {
     if (this.hasAnimated || !this.isBrowser || !this.plagResult) return;
     this.hasAnimated = true;
 
-    // Normalization logic: Original + AI + Matched = 100%
-    const rawPlag = this.plagResult.score?.plagiarism || 0;
-    const rawAI = 15; // Assuming a static or mock AI value since it's not in the type? 
-    // Wait, let's look at the type PlagiarismCheckResult again.
-    // It only has plagiarism and unique. unique + plagiarism = 100 usually?
-    // User image shows 3 bars: Original Content, AI-Generated, Matched Sources.
-    
-    const original = this.plagResult.score?.unique || 0;
-    const matched = this.plagResult.score?.plagiarism || 0;
-    const ai = 8; // Mocking AI for now as it's not in the provided API type yet, or I should check if I can derive it.
-    
-    const total = original + ai + matched;
-    this.normOriginal = Math.round((original / total) * 100);
-    this.normAI = Math.round((ai / total) * 100);
-    this.normMatched = 100 - this.normOriginal - this.normAI;
+    // Use the real API values directly — unique + plagiarism = 100%
+    this.normOriginal = this.plagResult.score?.unique ?? 0;
+    this.normMatched = this.plagResult.score?.plagiarism ?? 0;
 
-    const trustScore = this.normOriginal; // Trust Score = Original Content %
+    const trustScore = this.normOriginal;
     
-    // Animate Circular Progress Ring Animation
-    const circumference = 283;
+    // Animate Circular Progress Ring
+    const circumference = 502; // 2 * PI * 80
     const offset = circumference - (trustScore / 100) * circumference;
     
     gsap.to('.progress-ring-circle', {
@@ -293,7 +279,6 @@ export class HomeComponent implements AfterViewInit {
       width: (index: number, target: HTMLElement) => {
         const id = target.id;
         if (id === 'bar-original') return this.normOriginal + '%';
-        if (id === 'bar-ai') return this.normAI + '%';
         if (id === 'bar-matched') return this.normMatched + '%';
         return '0%';
       },

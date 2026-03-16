@@ -126,7 +126,7 @@
               <svg class="progress-ring" width="180" height="180">
                 <circle class="progress-ring-bg" cx="90" cy="90" r="80" stroke="rgba(255,255,255,0.05)" stroke-width="8" fill="transparent"/>
                 <circle class="progress-ring-circle" 
-                  [attr.stroke]="normOriginal >= 80 ? '#00E5A0' : (normOriginal >= 50 ? '#FFB547' : '#FF4D6A')" 
+                  [attr.stroke]="normOriginal >= 80 ? '#39FF88' : (normOriginal >= 50 ? '#FFB547' : '#FF4D6A')" 
                   cx="90" cy="90" r="80"
                   stroke-width="8" 
                   stroke-linecap="round"
@@ -136,7 +136,7 @@
               </svg>
               <div class="progress-ring-content">
                 <span class="score-value" style="font-size: 2.5rem; font-weight: 800; display: block; color: #fff;">{{ normOriginal }}%</span>
-                <span class="score-label" style="font-size: 0.75rem; color: #8BA3C7; letter-spacing: 0.1em;">TRUST SCORE</span>
+                <span class="score-label" style="font-size: 0.75rem; color: rgba(234,234,234,0.5); letter-spacing: 0.1em;">UNIQUE CONTENT</span>
               </div>
             </div>
             <div class="badge-status mx-auto" [ngClass]="{
@@ -146,35 +146,44 @@
             }">
               {{ normOriginal >= 80 ? 'SAFE DOCUMENT' : (normOriginal >= 50 ? 'REVIEW NEEDED' : 'ACTION REQUIRED') }}
             </div>
+
+            <!-- Metadata Row -->
+            <div class="meta-info mt-4 d-flex justify-content-center gap-4">
+              <div class="meta-item text-center">
+                <div class="meta-value" style="font-size: 1.4rem; font-weight: 800; color: #EAEAEA;">{{ plagResult.metadata.total_sentences }}</div>
+                <div class="meta-label" style="font-size: 0.7rem; color: rgba(234,234,234,0.4); text-transform: uppercase; letter-spacing: 0.05em;">Sentences</div>
+              </div>
+              <div class="meta-divider" style="width: 1px; background: rgba(255,255,255,0.08);"></div>
+              <div class="meta-item text-center">
+                <div class="meta-value" style="font-size: 1.4rem; font-weight: 800; color: #FF4D6A;">{{ plagResult.metadata.matched_sentences }}</div>
+                <div class="meta-label" style="font-size: 0.7rem; color: rgba(234,234,234,0.4); text-transform: uppercase; letter-spacing: 0.05em;">Matched</div>
+              </div>
+            </div>
           </div>
 
-          <!-- Right: Score Bars & Details -->
+          <!-- Right: Score Bars -->
           <div class="col-lg-8">
             <div class="score-details-list">
               <div class="score-row mb-4">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="d-flex align-items-center gap-2"><div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #00E5A0;"></div> Original Content</span>
-                  <span class="fw-bold text-white">{{ normOriginal }}%</span>
+                  <span class="d-flex align-items-center gap-2" style="color: #EAEAEA;">
+                    <div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #39FF88;"></div>
+                    Unique Content
+                  </span>
+                  <span class="fw-bold" style="color: #EAEAEA;">{{ normOriginal }}%</span>
                 </div>
                 <div class="score-bar-track" style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
-                  <div class="score-bar-fill" id="bar-original" [style.width.%]="normOriginal" style="height: 100%; background: linear-gradient(90deg, #00E5A0, #00C2FF); border-radius: 4px;"></div>
+                  <div class="score-bar-fill" id="bar-original" [style.width.%]="normOriginal" style="height: 100%; background: linear-gradient(90deg, #39FF88, #00C2FF); border-radius: 4px;"></div>
                 </div>
               </div>
 
               <div class="score-row mb-4">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="d-flex align-items-center gap-2"><div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #FFB547;"></div> AI-Generated</span>
-                  <span class="fw-bold text-white">{{ normAI }}%</span>
-                </div>
-                <div class="score-bar-track" style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
-                  <div class="score-bar-fill" id="bar-ai" [style.width.%]="normAI" style="height: 100%; background: #FFB547; border-radius: 4px;"></div>
-                </div>
-              </div>
-
-              <div class="score-row mb-4">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="d-flex align-items-center gap-2"><div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #FF4D6A;"></div> Matched Sources</span>
-                  <span class="fw-bold text-white">{{ normMatched }}%</span>
+                  <span class="d-flex align-items-center gap-2" style="color: #EAEAEA;">
+                    <div class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #FF4D6A;"></div>
+                    Plagiarized Content
+                  </span>
+                  <span class="fw-bold" style="color: #EAEAEA;">{{ normMatched }}%</span>
                 </div>
                 <div class="score-bar-track" style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
                   <div class="score-bar-fill" id="bar-matched" [style.width.%]="normMatched" style="height: 100%; background: #FF4D6A; border-radius: 4px;"></div>
@@ -195,39 +204,34 @@
           </div>
         </div>
 
+        <!-- Matches Section -->
         <div class="mt-5 pt-4 border-top border-light border-opacity-10">
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h6 class="m-0 text-white font-syne">Verified Matches Found ({{ plagResult.matches.length }})</h6>
-            <button class="btn-action-icon" (click)="copyToClipboard(form.value.plagContent)" title="Copy Original Text">
-              <lucide-icon name="copy" size="16"></lucide-icon>
-            </button>
+            <h6 class="m-0 font-syne" style="color: #EAEAEA;">
+              Verified Matches Found ({{ plagResult.matches.length }})
+            </h6>
+            <div class="d-flex align-items-center gap-2">
+              <span style="font-size:0.75rem; color: rgba(234,234,234,0.4);">Top Source:</span>
+              <span style="font-size:0.75rem; color: #39FF88; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block;">{{ plagResult.top_source }}</span>
+            </div>
           </div>
-          <div class="table-responsive">
-            <table class="table table-custom m-0">
-              <thead>
-                <tr>
-                  <th style="min-width: 250px;">Source URL / Domain</th>
-                  <th class="text-center" style="min-width: 120px;">Confidence</th>
-                  <th class="text-end" style="min-width: 100px;">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let match of plagResult.matches" class="table-row-animate">
-                  <td>
-                    <div class="source-info d-flex align-items-center gap-2">
-                      <lucide-icon name="globe" size="14" class="text-secondary"></lucide-icon>
-                      <span class="source-url text-truncate" style="max-width: 400px;">{{ match.source }}</span>
-                    </div>
-                  </td>
-                  <td class="text-center">
-                    <span class="confidence-badge" style="background: rgba(0, 194, 255, 0.1); border: 1px solid rgba(0, 194, 255, 0.2); color: #00C2FF; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">{{ match.percentage ? match.percentage + '%' : '—' }}</span>
-                  </td>
-                  <td class="text-end">
-                    <button class="btn-compare-mini" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #8BA3C7; border-radius: 6px; padding: 4px 12px; font-size: 0.75rem; transition: all 0.3s ease;">COMPARE</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+          <!-- Match Cards -->
+          <div class="matches-list d-flex flex-column gap-3">
+            <div *ngFor="let match of plagResult.matches; let i = index" class="match-card p-3 p-md-4">
+              <div class="d-flex align-items-start gap-3">
+                <div class="match-index-badge" style="min-width: 28px; height: 28px; background: rgba(255,77,106,0.12); border: 1px solid rgba(255,77,106,0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #FF4D6A;">{{ i + 1 }}</div>
+                <div class="flex-grow-1 min-w-0">
+                  <p class="match-sentence mb-2" style="color: rgba(234,234,234,0.85); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                    "{{ match.sentence }}"
+                  </p>
+                  <a [href]="match.source" target="_blank" rel="noopener" class="match-source-link d-inline-flex align-items-center gap-1">
+                    <lucide-icon name="globe" size="12"></lucide-icon>
+                    <span style="max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block;">{{ match.source }}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

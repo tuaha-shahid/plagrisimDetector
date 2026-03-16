@@ -37,22 +37,11 @@ export class NavbarComponent implements AfterViewInit {
   }
 
   initAnimations() {
-    try {
-      const tl = gsap.timeline();
-      tl.from('.navbar-app', {
-        y: -100,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        delay: 0.1
-      });
-    } catch (e) {
-      console.warn('GSAP Navbar Animation Failed:', e);
-      const navbar = document.querySelector('.navbar-app') as HTMLElement;
-      if (navbar) {
-        navbar.style.opacity = '1';
-        navbar.style.transform = 'none';
-      }
+    // Use CSS animation class instead of GSAP so the navbar never
+    // gets stuck in an intermediate state on page transitions.
+    const navbar = document.querySelector('.navbar-app') as HTMLElement;
+    if (navbar) {
+      navbar.classList.add('navbar-animated');
     }
   }
 
