@@ -1,5 +1,6 @@
-import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom, APP_INITIALIZER, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { inject } from '@vercel/analytics';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -55,6 +56,13 @@ export const appConfig: ApplicationConfig = {
         AlertCircle, Trash2, Zap, BarChart3, Mail, Briefcase, MapPin, ChevronDown, 
         Clock, FileText, UploadCloud 
       })
-    )
+    ),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => {
+        return () => inject({ mode: isDevMode() ? 'development' : 'production' });
+      },
+      multi: true
+    }
   ]
 };
