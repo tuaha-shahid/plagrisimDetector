@@ -31,7 +31,7 @@
       <div class="process-grid-wrapper">
         <div class="process-step-card" *ngFor="let step of steps; let i = index">
           <div class="step-num-bg">0{{ i + 1 }}</div>
-          <div class="step-icon-wrap">
+          <div class="step-icon-wrap" aria-hidden="true">
             <div class="icon-circle-gradient">
               <lucide-icon [name]="step.icon" size="20"></lucide-icon>
             </div>
@@ -56,7 +56,7 @@
             the most reliable detection suite on the market. Our systems learn from 
             trillions of parameters to stay ahead of synthetic content evolution.
           </p>
-          <button class="btn-primary-glow">Experience Accuracy</button>
+          <button class="btn-primary-glow" aria-label="Experience PlagiarismGuard Accuracy">Experience Accuracy</button>
         </div>
 
         <!-- Right: 2x2 Feature Grid -->

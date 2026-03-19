@@ -4,8 +4,8 @@
       
       <!-- NAVBAR LEFT: Logo -->
       <div class="navbar-left">
-        <a routerLink="/" class="nav-brand">
-          <div class="brand-logo">
+        <a routerLink="/" class="nav-brand" aria-label="PlagiarismGuard Home">
+          <div class="brand-logo" aria-hidden="true">
             <lucide-icon name="shield-check" size="20"></lucide-icon>
           </div>
           <span class="brand-name">Plagiarism<span class="text-accent">Guard</span></span>
@@ -60,14 +60,14 @@
       <!-- NAVBAR RIGHT: Actions & Mobile Toggle -->
       <div class="navbar-right">
         <div class="menu-actions d-none d-lg-flex">
-          <button class="btn-gradient-nav" (click)="closeMenu()">Get Started</button>
+          <button class="btn-gradient-nav" (click)="closeMenu()" aria-label="Get Started with PlagiarismGuard">Get Started</button>
         </div>
 
         <!-- Mobile Toggle -->
-        <button class="nav-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="nav-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle navigation menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
       </div>
 

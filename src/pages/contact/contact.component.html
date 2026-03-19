@@ -59,8 +59,8 @@
       <div class="row g-4">
         <div class="col-md-6">
           <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" formControlName="from_name" class="cyber-input" 
+            <label class="form-label" for="from_name">Full Name</label>
+            <input type="text" id="from_name" formControlName="from_name" class="cyber-input" 
                    [class.border-danger]="form.get('from_name')?.invalid && form.get('from_name')?.touched"
                    placeholder="Enter your full name">
             <div *ngIf="form.get('from_name')?.invalid && form.get('from_name')?.touched" class="text-danger small mt-2">
@@ -70,8 +70,8 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" formControlName="from_email" class="cyber-input" 
+            <label class="form-label" for="from_email">Email Address</label>
+            <input type="email" id="from_email" formControlName="from_email" class="cyber-input" 
                    [class.border-danger]="form.get('from_email')?.invalid && form.get('from_email')?.touched"
                    placeholder="Enter your email">
             <div *ngIf="form.get('from_email')?.invalid && form.get('from_email')?.touched" class="text-danger small mt-2">
@@ -81,8 +81,8 @@
         </div>
         <div class="col-12">
           <div class="form-group">
-            <label class="form-label">Subject</label>
-            <input type="text" formControlName="subject" class="cyber-input" 
+            <label class="form-label" for="subject">Subject</label>
+            <input type="text" id="subject" formControlName="subject" class="cyber-input" 
                    [class.border-danger]="form.get('subject')?.invalid && form.get('subject')?.touched"
                    placeholder="What is this regarding?">
             <div *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched" class="text-danger small mt-2">
@@ -92,8 +92,8 @@
         </div>
         <div class="col-12">
           <div class="form-group">
-            <label class="form-label">Message Body</label>
-            <textarea formControlName="message" class="cyber-input" rows="6" 
+            <label class="form-label" for="message">Message Body</label>
+            <textarea id="message" formControlName="message" class="cyber-input" rows="6" 
                       [class.border-danger]="form.get('message')?.invalid && form.get('message')?.touched"
                       placeholder="Describe your inquiry in detail..."></textarea>
             <div *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="text-danger small mt-2">

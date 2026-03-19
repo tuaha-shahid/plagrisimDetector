@@ -24,7 +24,7 @@
     <div class="advantage-grid">
       <div class="advantage-card" *ngFor="let adv of advantages.slice(0, 3)">
         <div class="adv-icon">
-          <lucide-icon [name]="adv.icon" size="24"></lucide-icon>
+          <lucide-icon [name]="adv.icon" size="24" aria-hidden="true"></lucide-icon>
         </div>
         <h4 class="adv-title">{{ adv.title }}</h4>
         <p class="adv-desc">{{ adv.desc }}</p>
@@ -88,7 +88,7 @@
       </p>
       <button class="btn-primary-glow d-inline-flex align-items-center" routerLink="/dashboard">
         Start Scanning Now
-        <lucide-icon name="arrow-right" size="18" class="ms-2 cta-arrow" #ctaArrow></lucide-icon>
+        <lucide-icon name="arrow-right" size="18" class="ms-2 cta-arrow" #ctaArrow aria-hidden="true"></lucide-icon>
       </button>
     </div>
     </div>
