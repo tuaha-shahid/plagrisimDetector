@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -17,9 +18,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements AfterViewInit {
+  
   isBrowser: boolean;
-  contactForm: FormGroup;
+  form: FormGroup;
   isSubmitting = false;
+  submitSuccess = false;
   
   faqs = [
     {
@@ -53,11 +56,12 @@ export class ContactComponent implements AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.contactForm = this.fb.group({
-      fullName: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', [Validators.required, Validators.minLength(10)]]
+    this.form = this.fb.group({
+      from_name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(12)])],
+      to_name: ['Admin'],
+      from_email: ['', Validators.compose([Validators.required, Validators.email])],
+      subject: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
+      message: ['', Validators.compose([Validators.required, Validators.minLength(7)])]
     });
   }
 
@@ -160,16 +164,34 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-  onSubmit() {
-    if (this.contactForm.valid) {
+  async onSubmit() {
+    if (this.form.valid) {
       this.isSubmitting = true;
+      this.submitSuccess = false;
       
-      // Simulate API call
-      setTimeout(() => {
+      try {
+        await emailjs.send(
+          "service_o9e87he", 
+          "template_7h4ffef", 
+          this.form.value,
+          "a0bw25Ex17tjmwBff"
+        );
+        
         this.isSubmitting = false;
-        alert('Transmission Encrypted & Sent Successfully!');
-        this.contactForm.reset();
-      }, 2000);
+        this.submitSuccess = true;
+        this.form.reset({ to_name: 'Admin' });
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => this.submitSuccess = false, 5000);
+        
+      } catch (error) {
+        this.isSubmitting = false;
+        console.error('Error sending email:', error);
+        alert('Transmission failed. The secure channel is currently unavailable. Please try again later.');
+      }
+    } else {
+      // Mark all as touched to display the inline validation errors in the HTML
+      this.form.markAllAsTouched();
     }
   }
 }

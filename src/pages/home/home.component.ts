@@ -42,6 +42,17 @@ export class HomeComponent implements AfterViewInit {
   private particles: Particle[] = [];
   private animationId!: number;
 
+  // Scanner Display Logic
+  loaderMessages = [
+    "Initializing neural engines...",
+    "Scanning 1B+ scholarly articles...",
+    "Cross-referencing web sources...",
+    "Analyzing semantic structures...",
+    "Finalizing originality report..."
+  ];
+  currentLoaderMessage = this.loaderMessages[0];
+  private loaderInterval?: any;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private fb: FormBuilder,
@@ -229,12 +240,47 @@ export class HomeComponent implements AfterViewInit {
     }
   }
 
-  handleFileUpload(file: File) {
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.form.patchValue({ plagContent: e.target.result });
-    };
-    reader.readAsText(file);
+  async handleFileUpload(file: File) {
+    const extension = file.name.split('.').pop()?.toLowerCase();
+
+    if (extension === 'pdf') {
+       try {
+         // Dynamically import to avoid SSR errors (DOMMatrix is not defined on server)
+         const pdfjsLib = await import('pdfjs-dist');
+         pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+
+         const arrayBuffer = await file.arrayBuffer();
+         const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+         let fullText = '';
+         for (let i = 1; i <= pdf.numPages; i++) {
+           const page = await pdf.getPage(i);
+           const textContent = await page.getTextContent();
+           const pageText = textContent.items.map((item: any) => item.str).join(' ');
+           fullText += pageText + '\n\n';
+         }
+         this.form.patchValue({ plagContent: fullText.trim() });
+       } catch (error) {
+         console.error('Error reading PDF:', error);
+         alert('Failed to read PDF file.');
+       }
+    } else if (extension === 'doc' || extension === 'docx') {
+       try {
+         const mammoth = await import('mammoth');
+         const arrayBuffer = await file.arrayBuffer();
+         const result = await mammoth.extractRawText({ arrayBuffer });
+         this.form.patchValue({ plagContent: result.value.trim() });
+       } catch (error) {
+         console.error('Error reading Word doc:', error);
+         alert('Failed to read Word document.');
+       }
+    } else {
+       // Fallback for TXT or other text-based files
+       const reader = new FileReader();
+       reader.onload = (e: any) => {
+         this.form.patchValue({ plagContent: e.target.result });
+       };
+       reader.readAsText(file);
+    }
   }
 
   private hasAnimated = false;
@@ -242,15 +288,28 @@ export class HomeComponent implements AfterViewInit {
   checkPlagiarism() {
     if (this.form.invalid) return;
     this.isLoading = true;
-    this.hasAnimated = false; // Reset for new result
+    this.hasAnimated = false;
+    
+    // Start loader message rotation
+    let msgIndex = 0;
+    this.currentLoaderMessage = this.loaderMessages[0];
+    this.loaderInterval = setInterval(() => {
+      msgIndex = (msgIndex + 1) % this.loaderMessages.length;
+      this.currentLoaderMessage = this.loaderMessages[msgIndex];
+    }, 1500);
     
     this.plagrimService.checkPlagrisim(this.form.value).subscribe({
       next: (result) => {
+        clearInterval(this.loaderInterval);
         this.plagResult = result;
         this.isLoading = false;
         setTimeout(() => this.animateResults(), 100);
       },
-      error: () => this.isLoading = false
+      error: () => {
+        clearInterval(this.loaderInterval);
+        this.isLoading = false;
+        alert('An error occurred during the scan. Please try again.');
+      }
     });
   }
 

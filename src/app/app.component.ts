@@ -90,6 +90,12 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
+  dismissModal(): void {
+    this.securityService.dismissLock();
+    this.authKey = '';
+    this.showError = false;
+  }
+
   // ── Lifecycle ─────────────────────────────────────────────────────────────
 
   private initScrollToTop(): void {

@@ -12,6 +12,10 @@ export class SecurityLatchService {
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
+      // Disable DevTools security modal entirely on mobile devices
+      if (window.innerWidth < 768) {
+        return;
+      }
       this.checkSession();
       this.startMonitoring();
     }
@@ -71,5 +75,13 @@ export class SecurityLatchService {
       return true;
     }
     return false;
+  }
+
+  /**
+   * Allows the user to manually dismiss the lock modal
+   * without authenticating (temporarily hiding it).
+   */
+  public dismissLock() {
+    this.isLocked$.next(false);
   }
 }

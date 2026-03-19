@@ -81,6 +81,21 @@
                 #textarea
               ></textarea>
               <div class="highlight-overlay" [innerHTML]="highlightedText" *ngIf="!isLoading && plagResult"></div>
+              
+              <!-- Engaging Scanner Loader Overlay -->
+              <div class="scanner-overlay" *ngIf="isLoading">
+                <div class="scanner-content">
+                  <div class="radar-container">
+                    <div class="radar-circle"></div>
+                    <div class="radar-circle circle-2"></div>
+                    <div class="radar-sweep"></div>
+                  </div>
+                  <h4 class="scanner-text gradient-text">ANALYZING DOCUMENT</h4>
+                  <p class="scanner-subtext">{{ currentLoaderMessage }}</p>
+                  <div class="scanning-line"></div>
+                </div>
+              </div>
+
             </div>
           </form>
         </div>

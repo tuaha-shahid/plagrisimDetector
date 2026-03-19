@@ -347,3 +347,83 @@ section {
         justify-content: center;
     }
 }
+
+/* =========================================================================
+   Global Mobile Spacing Reductions (Aggressive)
+   Fixes "too much empty space" on mobile across ALL components
+   ========================================================================= */
+@media (max-width: 768px) {
+
+    /* 1. Override Bootstrap Utilities */
+    .py-5,
+    .pt-5,
+    .pb-5,
+    .p-5,
+    .py-4,
+    .pt-4,
+    .pb-4,
+    .p-4 {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
+    }
+
+    .my-5,
+    .mt-5,
+    .mb-5,
+    .m-5,
+    .my-4,
+    .mt-4,
+    .mb-4,
+    .m-4 {
+        margin-top: 32px !important;
+        margin-bottom: 32px !important;
+    }
+
+    .mt-5 {
+        margin-top: 32px !important;
+    }
+
+    .mb-5 {
+        margin-bottom: 32px !important;
+    }
+
+    .gap-5 {
+        gap: 24px !important;
+    }
+
+    .gap-4 {
+        gap: 16px !important;
+    }
+
+    /* 2. Override Hardcoded Component CSS Paddings (80px, 120px, etc.) */
+    section,
+    footer,
+    .hero-section,
+    .contact-hero,
+    .about-hero,
+    .services-hero,
+    .why-us-hero,
+    .feature-section,
+    .about-content-section,
+    .story-section,
+    .mission-vision-section {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
+    }
+
+    /* 3. Give Navbar Breathing Room on Heroes */
+    .hero-section {
+        min-height: auto !important;
+        padding-top: 90px !important;
+    }
+
+    /* 4. Compact Internal Card Spacing */
+    .glass-card,
+    .advantage-card,
+    .service-box,
+    .info-card,
+    .scan-section,
+    .result-card {
+        padding: 20px !important;
+    }
+}

@@ -20,7 +20,7 @@
           </div>
           <span class="info-label">Direct Email</span>
           <h4 class="info-title">Support Team</h4>
-          <a href="mailto:support&#64;plagiarismguard.ai" class="info-value">support&#64;plagiarismguard.ai</a>
+          <a href="mailto:tuhashahid.dev&#64;gmail.com" class="info-value">tuhashahid.dev&#64;gmail.com</a>
         </div>
       </div>
       <div class="info-card-wrap">
@@ -30,7 +30,7 @@
           </div>
           <span class="info-label">Business</span>
           <h4 class="info-title">Partnerships</h4>
-          <a href="mailto:partners&#64;plagiarismguard.ai" class="info-value">partners&#64;plagiarismguard.ai</a>
+          <a href="mailto:tuhashahid.dev&#64;gmail.com" class="info-value">tuhashahid.dev&#64;gmail.com</a>
         </div>
       </div>
       <div class="info-card-wrap">
@@ -55,36 +55,72 @@
       <p class="text-secondary opacity-75 m-0 lh-base">We'll get back to you within 24 hours.</p>
     </div>
 
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="advanced-contact-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="advanced-contact-form">
       <div class="row g-4">
         <div class="col-md-6">
           <div class="form-group">
             <label class="form-label">Full Name</label>
-            <input type="text" formControlName="fullName" class="cyber-input" placeholder="Enter your full name" required>
+            <input type="text" formControlName="from_name" class="cyber-input" 
+                   [class.border-danger]="form.get('from_name')?.invalid && form.get('from_name')?.touched"
+                   placeholder="Enter your full name">
+            <div *ngIf="form.get('from_name')?.invalid && form.get('from_name')?.touched" class="text-danger small mt-2">
+              Name is required (3-12 characters).
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label class="form-label">Email Address</label>
-            <input type="email" formControlName="email" class="cyber-input" placeholder="Enter your email" required>
+            <input type="email" formControlName="from_email" class="cyber-input" 
+                   [class.border-danger]="form.get('from_email')?.invalid && form.get('from_email')?.touched"
+                   placeholder="Enter your email">
+            <div *ngIf="form.get('from_email')?.invalid && form.get('from_email')?.touched" class="text-danger small mt-2">
+              Valid email is required.
+            </div>
           </div>
         </div>
         <div class="col-12">
           <div class="form-group">
             <label class="form-label">Subject</label>
-            <input type="text" formControlName="subject" class="cyber-input" placeholder="What is this regarding?" required>
+            <input type="text" formControlName="subject" class="cyber-input" 
+                   [class.border-danger]="form.get('subject')?.invalid && form.get('subject')?.touched"
+                   placeholder="What is this regarding?">
+            <div *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched" class="text-danger small mt-2">
+              Subject is required (min 5 characters).
+            </div>
           </div>
         </div>
         <div class="col-12">
           <div class="form-group">
             <label class="form-label">Message Body</label>
-            <textarea formControlName="message" class="cyber-input" rows="6" placeholder="Describe your inquiry in detail..." required></textarea>
+            <textarea formControlName="message" class="cyber-input" rows="6" 
+                      [class.border-danger]="form.get('message')?.invalid && form.get('message')?.touched"
+                      placeholder="Describe your inquiry in detail..."></textarea>
+            <div *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="text-danger small mt-2">
+              Message is required (min 7 characters).
+            </div>
           </div>
         </div>
         <div class="col-12 mt-2">
-          <button type="submit" class="btn-submit-glow w-100 position-relative" [disabled]="isSubmitting">
-            <span [class.opacity-0]="isSubmitting">Send Transmission</span>
-            <div class="spinner-border spinner-border-sm position-absolute" role="status" *ngIf="isSubmitting" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+          <button type="submit" class="btn-submit-glow w-100 position-relative" 
+                  [disabled]="isSubmitting || submitSuccess" 
+                  [ngClass]="{'btn-success-glow': submitSuccess}">
+            
+            <!-- Default State -->
+            <span *ngIf="!isSubmitting && !submitSuccess">Send Transmission</span>
+            
+            <!-- Loading State -->
+            <div *ngIf="isSubmitting" class="d-flex align-items-center justify-content-center gap-2">
+               <div class="spinner-border spinner-border-sm" style="color: #39FF88;" role="status"></div>
+               <span>Encrypting & Sending...</span>
+            </div>
+
+            <!-- Success State -->
+            <span *ngIf="submitSuccess" class="d-flex align-items-center justify-content-center gap-2" style="color: #39FF88;">
+               <lucide-icon name="check-circle" size="20"></lucide-icon>
+               Transmission Successful
+            </span>
+            
           </button>
         </div>
       </div>
