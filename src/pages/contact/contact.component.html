@@ -139,7 +139,7 @@
     <div class="advanced-faq-container">
       <div *ngFor="let faq of faqs; let i = index" class="faq-accordion-item" [class.active]="faq.open">
         <div class="faq-q-row p-4" (click)="toggleFaq(i)">
-          <h5 class="faq-question-text mb-0">{{ faq.question }}</h5>
+          <h3 class="faq-question-text h5 mb-0">{{ faq.question }}</h3>
           <div class="faq-arrow-icon" #faqArrow [class.rotated]="faq.open">
             <lucide-icon name="chevron-down" size="18"></lucide-icon>
           </div>

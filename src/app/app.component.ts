@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { isPlatformBrowser, AsyncPipe, NgIf } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { filter } from 'rxjs/operators';
@@ -32,10 +33,23 @@ export class AppComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
-    public securityService: SecurityLatchService
+    public securityService: SecurityLatchService,
+    private titleService: Title,
+    private metaService: Meta
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.isLocked$ = this.securityService.isLocked$;
+
+    // Add Global SEO Tags
+    this.titleService.setTitle('PlagiarismGuard - Advanced AI Plagiarism Detection');
+    this.metaService.addTags([
+      { name: 'description', content: 'Protect your content integrity with an advanced AI plagiarism detection neural pipeline.' },
+      { name: 'keywords', content: 'plagiarism checker, AI detector, content verification, student tools' },
+      { property: 'og:title', content: 'PlagiarismGuard - Advanced AI Plagiarism Detection' },
+      { property: 'og:description', content: 'Protect your content integrity with an advanced AI plagiarism detection neural pipeline.' },
+      { property: 'og:url', content: 'https://plagiarism-checker.dev/' },
+      { property: 'og:type', content: 'website' }
+    ]);
 
     if (this.isBrowser) {
       gsap.registerPlugin(ScrollTrigger);

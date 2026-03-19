@@ -164,6 +164,8 @@ h2 {
     text-align: left;
     position: relative;
     padding-left: 16px;
+    min-height: 500px;
+    /* CLS Prevention */
 }
 
 /* Continuous Vertical Line through all nodes */
@@ -216,6 +218,8 @@ h2 {
     padding: 20px 24px;
     flex-grow: 1;
     border: 1px solid rgba(234, 234, 234, 0.05);
+    min-height: 100px;
+    /* CLS Prevention */
 }
 
 /* ─── Testimonials ─── */

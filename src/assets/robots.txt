@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plagiarism-checker.dev/assets/sitemap.xml
