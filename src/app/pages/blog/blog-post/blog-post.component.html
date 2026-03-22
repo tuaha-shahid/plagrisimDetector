@@ -1,0 +1,60 @@
+<main class="blog-page-wrapper">
+
+  <!-- Not Found State -->
+  <section *ngIf="!post" class="blog-not-found py-5">
+    <div class="container text-center py-5">
+      <h2 class="text-white mb-3">Article Not Found</h2>
+      <p class="text-secondary mb-4">The article you're looking for may have been moved or doesn't exist.</p>
+      <a routerLink="/blog" class="btn-primary-glow">← Back to Blog</a>
+    </div>
+  </section>
+
+  <!-- Post Content -->
+  <article *ngIf="post">
+    <!-- Post Hero -->
+    <header class="post-hero">
+      <div class="container">
+        <div class="post-hero-inner">
+          <div class="post-meta-bar">
+            <span class="blog-category-tag">{{ post.category }}</span>
+            <span class="post-read-time">{{ post.readTime }}</span>
+          </div>
+          <h1 class="post-title">{{ post.title }}</h1>
+          <p class="post-excerpt text-secondary">{{ post.excerpt }}</p>
+          <div class="post-author-row">
+            <div class="author-avatar" aria-hidden="true">PG</div>
+            <div>
+              <div class="author-name">{{ post.author }}</div>
+              <div class="author-date text-secondary">{{ post.date }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Body -->
+    <section class="post-body-section">
+      <div class="container">
+        <div class="post-body-inner">
+          <!-- The article HTML content, rendered safely via innerHTML binding -->
+          <div class="post-content" [innerHTML]="post.content"></div>
+
+          <!-- Post Footer / CTA -->
+          <div class="post-cta-card">
+            <div class="post-cta-icon" aria-hidden="true">🛡️</div>
+            <div>
+              <h3 class="post-cta-title">Try PlagiarismGuard Free</h3>
+              <p class="text-secondary post-cta-desc">Detect AI-generated content and plagiarism across billions of sources — academic and web.</p>
+            </div>
+            <a routerLink="/" class="btn-primary-glow post-cta-btn" aria-label="Try PlagiarismGuard free plagiarism checker">Scan Now →</a>
+          </div>
+
+          <!-- Back link -->
+          <div class="post-back mt-5">
+            <a routerLink="/blog" class="back-link">← Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>

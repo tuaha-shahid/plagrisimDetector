@@ -1,33 +1,264 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://plagiarism-checker.dev/</loc>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://plagiarism-checker.dev/dashboard</loc>
-      <changefreq>daily</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://plagiarism-checker.dev/why-us</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://plagiarism-checker.dev/about</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://plagiarism-checker.dev/services</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://plagiarism-checker.dev/contact</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
+
+  <!-- Root -->
+  <url>
+    <loc>https://plagiarism-checker.dev/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main pages -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://plagiarism-checker.dev/privacy</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://plagiarism-checker.dev/terms</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://plagiarism-checker.dev/contact</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ── Blog Posts (28 total) ── -->
+
+  <!-- Post 1 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/how-ai-language-models-are-changing-academic-integrity-in-2026</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 2 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/difference-between-plagiarism-and-ai-assisted-writing</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 3 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/why-traditional-plagiarism-checkers-fail-against-chatgpt</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 4 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/impact-of-plagiarism-on-seo-rankings-and-domain-authority</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 5 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/self-plagiarism-what-it-is-and-why-content-creators-should-care</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 6 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/copyright-infringement-vs-plagiarism-understanding-the-legal-differences</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 7 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/how-googles-algorithm-treats-ai-generated-content-vs-copied-text</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 8 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/rise-of-spinbots-how-semantic-analysis-catches-article-spinners</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 9 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/understanding-similarity-scores-what-percentage-is-acceptable</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 10 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/how-to-properly-cite-ai-tools-in-academic-papers-apa-mla-2026</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 11 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/ethical-use-of-ai-writing-assistants-in-higher-education</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 12 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/evolution-of-plagiarism-detection-from-manual-to-neural-networks</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 13 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/protecting-intellectual-property-in-the-era-of-web-scraping</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 14 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/decoding-nlp-how-natural-language-processing-spots-ai-content</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 15 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/code-plagiarism-why-developers-need-similarity-scanners-in-2026</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 16 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/psychology-of-plagiarism-why-students-cheat-and-how-to-prevent-it</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 17 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/ai-hallucinations-and-unintentional-plagiarism-a-growing-threat</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 18 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/content-syndication-vs-duplicate-content-seo-best-practices</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 19 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/journalistic-integrity-in-the-ai-era-the-cost-of-copied-content</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 20 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/redrafting-the-honor-code-how-universities-are-adapting-to-generative-ai</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 21 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/the-paraphrasing-trap-why-word-spinners-wont-fool-modern-detectors</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 22 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/navigating-false-positives-can-ai-detectors-falsely-accuse-original-writers</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 23 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/building-a-culture-of-originality-in-corporate-content-teams</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 24 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/high-profile-plagiarism-scandals-lessons-learned-from-ruined-careers</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 25 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/the-role-of-similarity-checkers-in-the-academic-peer-review-process</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 26 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/cross-lingual-plagiarism-how-translating-content-still-counts-as-theft</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 27 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/how-to-recover-your-website-from-a-google-duplicate-content-penalty</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Post 28 -->
+  <url>
+    <loc>https://plagiarism-checker.dev/blog/cryptographic-watermarking-the-next-frontier-in-ai-content-identification</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

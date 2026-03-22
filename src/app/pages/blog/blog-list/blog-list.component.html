@@ -1,0 +1,142 @@
+<main class="blog-page-wrapper">
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="blog-hero">
+    <div class="container text-center">
+      <span class="section-label">Knowledge Base</span>
+      <h1 class="blog-hero-title mt-2">Blog &amp; <span class="text-accent">Resources</span></h1>
+      <p class="text-secondary mt-3 mx-auto" style="max-width:580px;">
+        Expert guides on AI plagiarism detection, academic integrity, LLM content verification,
+        and maintaining originality in the age of generative AI.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num">{{ allPosts.length }}</span><span class="stat-label">Articles</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="stat-num">15+</span><span class="stat-label">Topics</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="stat-num">2026</span><span class="stat-label">Up to date</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured / Hero Post ──────────────────────────────── -->
+  <section class="featured-section" *ngIf="featuredPost">
+    <div class="container">
+      <div class="featured-label">
+        <span class="pulse-dot"></span>
+        Latest Article
+      </div>
+      <article class="featured-card">
+        <!-- Image placeholder -->
+        <div class="featured-image" [ngClass]="getCategoryClass(featuredPost.category)">
+          <span class="featured-image-icon">✦</span>
+          <div class="featured-image-overlay"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span class="blog-category-tag" [ngClass]="getCategoryClass(featuredPost.category)">
+              {{ featuredPost.category }}
+            </span>
+            <span class="blog-read-time">⏱ {{ featuredPost.readTime }}</span>
+            <span class="blog-read-time">{{ featuredPost.date }}</span>
+          </div>
+
+          <h2 class="featured-title">
+            <a [routerLink]="['/blog', featuredPost.slug]">{{ featuredPost.title }}</a>
+          </h2>
+
+          <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
+
+          <div class="featured-footer">
+            <div class="blog-author">
+              <div class="author-avatar" aria-hidden="true">PG</div>
+              <div>
+                <div class="author-name">{{ featuredPost.author }}</div>
+                <div class="author-date">{{ featuredPost.date }}</div>
+              </div>
+            </div>
+            <a
+              [routerLink]="['/blog', featuredPost.slug]"
+              class="btn-read-featured"
+              [attr.aria-label]="'Read featured article: ' + featuredPost.title">
+              Read Full Article <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Post Grid ─────────────────────────────────────────── -->
+  <section class="blog-list-section">
+    <div class="container">
+
+      <!-- Section separator -->
+      <div class="section-divider">
+        <span>All Articles</span>
+      </div>
+
+      <div class="blog-grid">
+        <article
+          class="blog-card"
+          *ngFor="let post of paginatedPosts; let i = index"
+          [style.animation-delay]="(i % 9 * 0.05) + 's'">
+
+          <!-- Top colour bar -->
+          <div class="card-accent-bar" [ngClass]="getCategoryClass(post.category)"></div>
+
+          <div class="blog-card-meta">
+            <span class="blog-category-tag" [ngClass]="getCategoryClass(post.category)">
+              {{ post.category }}
+            </span>
+            <span class="blog-read-time">⏱ {{ post.readTime }}</span>
+          </div>
+
+          <h2 class="blog-card-title">
+            <a [routerLink]="['/blog', post.slug]" [attr.aria-label]="'Read: ' + post.title">
+              {{ post.title }}
+            </a>
+          </h2>
+
+          <p class="blog-card-excerpt">{{ post.excerpt }}</p>
+
+          <div class="blog-card-footer">
+            <div class="blog-author">
+              <div class="author-avatar" aria-hidden="true">PG</div>
+              <div>
+                <div class="author-name">{{ post.author }}</div>
+                <div class="author-date">{{ post.date }}</div>
+              </div>
+            </div>
+            <a
+              [routerLink]="['/blog', post.slug]"
+              class="read-more-btn"
+              [attr.aria-label]="'Read full article: ' + post.title">
+              Read Article →
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-wrapper" *ngIf="hasMore">
+        <button class="btn-load-more" (click)="loadMore()" aria-label="Load more blog articles">
+          <span class="load-more-icon">↓</span>
+          Load More Articles
+          <span class="load-more-count">({{ gridPosts.length - paginatedPosts.length }} remaining)</span>
+        </button>
+      </div>
+
+      <!-- All posts loaded indicator -->
+      <div class="all-loaded" *ngIf="!hasMore && paginatedPosts.length > 0">
+        <span class="all-loaded-line"></span>
+        <span class="all-loaded-text">You've read it all ✨</span>
+        <span class="all-loaded-line"></span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
