@@ -1,27 +1,23 @@
-import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
-/**
- * CanonicalService
- * ─────────────────────────────────────────────────────────────
- * Creates, updates, or removes the <link rel="canonical"> tag
- * in the document <head>. Designed to be called from any
- * routed component's ngOnInit / ngOnDestroy lifecycle hooks.
- *
- * Usage:
- *   this.canonicalService.setUrl('https://plagiarism-checker.dev/blog/my-slug');
- *   this.canonicalService.setRoot();   // restores homepage canonical
- *   this.canonicalService.remove();    // strips the tag entirely
- */
 @Injectable({ providedIn: 'root' })
 export class CanonicalService {
 
   private readonly BASE = 'https://plagiarism-checker.dev';
+  private isBrowser: boolean;
 
-  constructor(@Inject(DOCUMENT) private doc: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   /** Set the canonical URL to an exact, full URL. */
   setUrl(url: string): void {
+    if (!this.isBrowser) return; // SSR Safety
+    
     this.getOrCreate().setAttribute('href', url);
   }
 
@@ -41,9 +37,11 @@ export class CanonicalService {
 
   /** Remove the canonical tag from the document head entirely. */
   remove(): void {
-    const existing = this.doc.head.querySelector('link[rel="canonical"]');
+    if (!this.isBrowser) return; // SSR Safety
+    
+    const existing = this.document.head?.querySelector('link[rel="canonical"]');
     if (existing) {
-      this.doc.head.removeChild(existing);
+      this.document.head.removeChild(existing);
     }
   }
 
@@ -51,11 +49,13 @@ export class CanonicalService {
 
   /** Returns the existing canonical link element, or creates one. */
   private getOrCreate(): HTMLLinkElement {
-    let el = this.doc.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    let el = this.document.head?.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!el) {
-      el = this.doc.createElement('link') as HTMLLinkElement;
+      el = this.document.createElement('link') as HTMLLinkElement;
       el.setAttribute('rel', 'canonical');
-      this.doc.head.appendChild(el);
+      if (this.document.head) {
+        this.document.head.appendChild(el);
+      }
     }
     return el;
   }
