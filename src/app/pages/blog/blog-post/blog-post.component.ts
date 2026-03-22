@@ -5,6 +5,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { BlogService, BlogPost } from '../blog.service';
 import { Subscription } from 'rxjs';
+import { CanonicalService } from '../../../services/canonical/canonical.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -22,6 +23,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     private blogService: BlogService,
     private titleService: Title,
     private metaService: Meta,
+    private canonicalService: CanonicalService,
     @Inject(DOCUMENT) private doc: Document,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
@@ -58,15 +60,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
 
     // Update canonical link
     if (isPlatformBrowser(this.platformId)) {
-      let canonical = this.doc.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-      if (canonical) {
-        canonical.href = `https://plagiarism-checker.dev/blog/${post.slug}`;
-      } else {
-        canonical = this.doc.createElement('link');
-        canonical.rel = 'canonical';
-        canonical.href = `https://plagiarism-checker.dev/blog/${post.slug}`;
-        this.doc.head.appendChild(canonical);
-      }
+      this.canonicalService.setPath(`/blog/${post.slug}`);
     }
   }
 
@@ -74,8 +68,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     if (this.routeSub) this.routeSub.unsubscribe();
     // Restore canonical to root on leave
     if (isPlatformBrowser(this.platformId)) {
-      const canonical = this.doc.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-      if (canonical) canonical.href = 'https://plagiarism-checker.dev/';
+      this.canonicalService.setRoot();
     }
   }
 }

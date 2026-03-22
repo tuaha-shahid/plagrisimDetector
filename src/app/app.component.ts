@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { FooterComponent } from '../pages/footer/footer.component';
 import { NavbarComponent } from '../pages/navbar/navbar.component';
 import { SecurityLatchService } from '../Services/Security/security-latch.service';
+import { CanonicalService } from './services/canonical/canonical.service';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -35,10 +36,16 @@ export class AppComponent implements AfterViewInit {
     private router: Router,
     public securityService: SecurityLatchService,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    private canonicalService: CanonicalService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.isLocked$ = this.securityService.isLocked$;
+
+    // Set Root Canonical
+    if (this.isBrowser) {
+      this.canonicalService.setRoot();
+    }
 
     // Add Global SEO Tags
     this.titleService.setTitle('PlagiarismGuard - Advanced AI Plagiarism Detection');

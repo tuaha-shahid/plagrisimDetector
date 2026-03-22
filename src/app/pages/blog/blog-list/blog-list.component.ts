@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { BlogService, BlogPost } from '../blog.service';
+import { CanonicalService } from '../../../services/canonical/canonical.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -24,7 +25,8 @@ export class BlogListComponent implements OnInit {
   constructor(
     private blogService: BlogService,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    private canonicalService: CanonicalService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,8 @@ export class BlogListComponent implements OnInit {
     // Remaining posts go into the paginated grid
     this.gridPosts = this.allPosts.slice(1);
     this.loadMore(true);
+
+    this.canonicalService.setPath('/blog');
 
     this.titleService.setTitle('Blog & Resources | PlagiarismGuard AI');
     this.metaService.updateTag({ name: 'description', content: 'Explore expert articles on AI plagiarism detection, academic integrity, LLM content verification, and maintaining originality in the age of generative AI.' });
