@@ -6,6 +6,7 @@ import { WhyUsComponent } from '../pages/why-us/why-us.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { TermsComponent } from './pages/terms/terms.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
     {
@@ -60,7 +61,8 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: ''
+        component: NotFoundComponent,
+        title: 'Page Not Found | PlagiarismGuard'
     }
 ];
 

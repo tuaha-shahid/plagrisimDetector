@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════
+   404 NOT FOUND — COMPONENT STYLES
+   ═══════════════════════════════════════════ */
+
+.not-found-wrapper {
+    background: #0A0F1E;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Glowing Orbs (Background) ── */
+.glow-orb {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.orb-1 {
+    background: #39FF88;
+    top: 10%;
+    left: 20%;
+    animation: floatOrb1 15s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+    background: #00C2FF;
+    bottom: 10%;
+    right: 20%;
+    animation: floatOrb2 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(100px, 100px) scale(1.2);
+    }
+}
+
+@keyframes floatOrb2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-100px, -80px) scale(1.1);
+    }
+}
+
+/* ── 404 Graphic ── */
+.error-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.error-number {
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #EAEAEA 0%, rgba(234, 234, 234, 0.2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.error-radar {
+    width: clamp(80px, 15vw, 150px);
+    height: clamp(80px, 15vw, 150px);
+    border-radius: 50%;
+    border: 2px solid rgba(57, 255, 136, 0.3);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 15, 30, 0.6);
+    box-shadow: 0 0 40px rgba(57, 255, 136, 0.15), inset 0 0 20px rgba(57, 255, 136, 0.1);
+    overflow: hidden;
+}
+
+.radar-icon {
+    width: 40%;
+    height: 40%;
+    color: #39FF88;
+    z-index: 2;
+    stroke-width: 2.5;
+}
+
+.radar-scan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(45deg, rgba(57, 255, 136, 0.8) 0%, transparent 70%);
+    transform-origin: top left;
+    animation: radarSweep 3s linear infinite;
+    z-index: 1;
+    border-radius: 100% 0 0 0;
+}
+
+@keyframes radarSweep {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Typography & Messaging ── */
+.error-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #EAEAEA;
+    letter-spacing: -0.02em;
+}
+
+.text-accent {
+    background: linear-gradient(135deg, #39FF88, #00C2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.error-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    color: rgba(234, 234, 234, 0.6);
+}
+
+/* ── Call to Actions ── */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #39FF88, #00C2FF);
+    color: #0A0F1E;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(57, 255, 136, 0.25);
+    color: #0A0F1E;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    color: #EAEAEA;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    color: #EAEAEA;
+}
+
+@media (max-width: 576px) {
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+    }
+}
