@@ -97,7 +97,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets",
+              "src/ads.txt"
             ],
             "styles": [
               "src/styles.css"
