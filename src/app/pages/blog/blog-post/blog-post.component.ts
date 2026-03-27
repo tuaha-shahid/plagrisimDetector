@@ -16,6 +16,7 @@ import { CanonicalService } from '../../../services/canonical/canonical.service'
 })
 export class BlogPostComponent implements OnInit, OnDestroy {
   post: BlogPost | undefined;
+  relatedPosts: BlogPost[] = [];
   private routeSub!: Subscription;
 
   constructor(
@@ -34,6 +35,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       this.post = this.blogService.getPostBySlug(slug);
       if (this.post) {
         this.updateSEOMeta(this.post);
+        this.relatedPosts = this.blogService.getRelatedPosts(this.post.slug, this.post.category, 3);
       }
     });
   }
@@ -61,7 +63,46 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     // Update canonical link
     if (isPlatformBrowser(this.platformId)) {
       this.canonicalService.setPath(`/blog/${post.slug}`);
+      this.injectArticleSchema(post);
     }
+  }
+
+  /** Inject Article JSON-LD schema for Google rich results */
+  private injectArticleSchema(post: BlogPost): void {
+    this.removeSchemaTag('article-schema');
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': post.title,
+      'description': post.metaDescription,
+      'datePublished': post.date,
+      'dateModified': post.date,
+      'author': {
+        '@type': 'Person',
+        'name': post.author
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'PlagiarismGuard',
+        'url': 'https://plagiarism-checker.dev'
+      },
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': `https://plagiarism-checker.dev/blog/${post.slug}`
+      },
+      'keywords': post.keywords.join(', ')
+    };
+    const script = this.doc.createElement('script');
+    script.id = 'article-schema';
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    this.doc.head.appendChild(script);
+  }
+
+  /** Remove a schema script tag by ID */
+  private removeSchemaTag(id: string): void {
+    const existing = this.doc.getElementById(id);
+    if (existing) existing.remove();
   }
 
   ngOnDestroy(): void {
@@ -69,6 +110,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     // Restore canonical to root on leave
     if (isPlatformBrowser(this.platformId)) {
       this.canonicalService.setRoot();
+      this.removeSchemaTag('article-schema');
     }
   }
 }

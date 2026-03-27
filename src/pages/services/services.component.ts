@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -37,8 +38,18 @@ export class ServicesComponent implements AfterViewInit {
 
   @ViewChild('heroTitle') heroTitleRef!: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private titleService: Title,
+    private metaService: Meta
+  ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    // Sitelink-optimized meta for Pricing sub-result
+    this.titleService.setTitle('Pricing & Plans — Free AI Plagiarism Checker Plans | PlagiarismGuard');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Explore PlagiarismGuard\'s free and premium plans. Get unlimited plagiarism and AI content detection for students, researchers, and professional content teams.'
+    });
     if (this.isBrowser) {
       gsap.registerPlugin(ScrollTrigger);
     }

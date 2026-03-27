@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
@@ -53,9 +54,17 @@ export class ContactComponent implements AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private titleService: Title,
+    private metaService: Meta
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    // Sitelink-optimized meta for Contact sub-result
+    this.titleService.setTitle('Contact Us — Get Support & Partnership Inquiries | PlagiarismGuard');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Contact the PlagiarismGuard team for support, bug reports, or partnership inquiries. Reach us at support@plagiarism-checker.dev. We respond within 24 hours.'
+    });
     this.form = this.fb.group({
       from_name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(12)])],
       to_name: ['Admin'],

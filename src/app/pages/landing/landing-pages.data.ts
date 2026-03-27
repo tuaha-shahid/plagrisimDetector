@@ -1,0 +1,168 @@
+export interface LandingPageConfig {
+  path: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
+  heroSubtitle: string;
+  targetAudience: string;
+  benefitPoints: string[];
+  tier1Keywords: string[];
+  icon: string;
+  accentColor: string;
+}
+
+export const LANDING_PAGES: LandingPageConfig[] = [
+  {
+    path: 'plagiarism-checker-for-students',
+    title: 'Free Plagiarism Checker for Students',
+    metaTitle: 'Free Plagiarism Checker for Students | PlagiarismGuard AI',
+    metaDescription: 'Check your essays, dissertations, and assignments for plagiarism and AI-generated content. Free, instant, and trusted by thousands of students worldwide.',
+    h1: 'Free Plagiarism Checker for Students',
+    heroSubtitle: 'Submit your essay, dissertation, or assignment and get an instant originality score. Detect copied content and AI-generated text before your professor does.',
+    targetAudience: 'Students',
+    benefitPoints: [
+      'Check essays & assignments in seconds',
+      'Detect AI-generated content from ChatGPT, Gemini & Claude',
+      'Free to use — no sign-up required',
+      'Works for all academic formats: APA, MLA, Chicago',
+      'Trusted by students at 1,200+ universities worldwide',
+    ],
+    tier1Keywords: ['plagiarism checker for students', 'free essay plagiarism checker', 'check assignment for plagiarism'],
+    icon: '🎓',
+    accentColor: '#39FF88',
+  },
+  {
+    path: 'plagiarism-checker-for-teachers',
+    title: 'Plagiarism Checker for Teachers & Educators',
+    metaTitle: 'Plagiarism Checker for Teachers & Educators | PlagiarismGuard AI',
+    metaDescription: 'Empower educators with AI-powered plagiarism detection. Scan student submissions in bulk, identify AI-written content, and maintain academic standards.',
+    h1: 'Plagiarism Checker for Teachers & Educators',
+    heroSubtitle: 'Detect plagiarism and AI-generated content in student submissions. Protect classroom integrity with fast, accurate originality reports.',
+    targetAudience: 'Teachers',
+    benefitPoints: [
+      'Scan student submissions for plagiarism instantly',
+      'AI detection identifies ChatGPT and Gemini-generated text',
+      'Easy-to-read similarity and originality reports',
+      'FERPA-compliant content handling',
+      'Build a culture of academic honesty in your classroom',
+    ],
+    tier1Keywords: ['plagiarism checker for teachers', 'student submission plagiarism check', 'AI content detection educators'],
+    icon: '📚',
+    accentColor: '#00C2FF',
+  },
+  {
+    path: 'plagiarism-checker-for-bloggers',
+    title: 'Plagiarism Checker for Content Creators & Bloggers',
+    metaTitle: 'Plagiarism Checker for Bloggers & Content Creators | PlagiarismGuard',
+    metaDescription: 'Protect your blog content and SEO rankings. Check your articles for duplicate content, accidental plagiarism, and AI-written text before publishing.',
+    h1: 'Plagiarism Checker for Bloggers & Content Creators',
+    heroSubtitle: 'Protect your brand reputation and SEO rankings. Check for duplicate content, accidental plagiarism, and thin AI-generated content before you hit publish.',
+    targetAudience: 'Bloggers',
+    benefitPoints: [
+      'Protect your Google rankings from duplicate content penalties',
+      'Check guest posts and freelance content for originality',
+      'Detect AI-spun articles before they go live',
+      'Scan entire articles up to 10,000 words',
+      'Get a detailed similarity report with matched sources',
+    ],
+    tier1Keywords: ['plagiarism checker for bloggers', 'duplicate content checker', 'content originality scanner'],
+    icon: '✍️',
+    accentColor: '#A78BFA',
+  },
+  {
+    path: 'plagiarism-checker-for-researchers',
+    title: 'Plagiarism Checker for Academic Researchers',
+    metaTitle: 'Plagiarism Checker for Academic Researchers | PlagiarismGuard AI',
+    metaDescription: 'Ensure your research papers, theses, and journal submissions are fully original. Advanced AI-powered academic plagiarism detection for scholars worldwide.',
+    h1: 'Plagiarism Checker for Academic Researchers',
+    heroSubtitle: 'Protect your research reputation. Run your paper through an AI-powered neural pipeline that cross-checks against academic databases, preprint archives, and the open web.',
+    targetAudience: 'Researchers',
+    benefitPoints: [
+      'Cross-check against academic paper databases',
+      'Detect self-plagiarism from your own prior publications',
+      'Find paraphrased text and near-duplicate passages',
+      'Generate detailed source-matched reports for peer review',
+      'Covers LaTeX, DOCX, and plain text formats',
+    ],
+    tier1Keywords: ['plagiarism checker for researchers', 'academic paper plagiarism tool', 'research paper originality checker'],
+    icon: '🔬',
+    accentColor: '#F59E0B',
+  },
+  {
+    path: 'ai-content-detector-for-marketers',
+    title: 'AI Content Detector for Marketers & SEO Teams',
+    metaTitle: 'AI Content Detector for Marketers & SEO Teams | PlagiarismGuard',
+    metaDescription: 'Audit your marketing content for AI-generated text that can harm your Google rankings. Detect ChatGPT, Gemini, and Claude content across your entire content team.',
+    h1: 'AI Content Detector for Marketing & SEO Teams',
+    heroSubtitle: 'Google penalizes thin, AI-generated content. Audit your team\'s output before it goes live — detect AI-written copy, protect your domain authority, and maintain search rankings.',
+    targetAudience: 'Marketers',
+    benefitPoints: [
+      'Detect AI content that risks Google ranking penalties',
+      'Audit freelancer and agency-delivered content',
+      'Identify AI-generated product descriptions at scale',
+      'Protect domain authority and organic traffic',
+      'API access available for automated content pipelines',
+    ],
+    tier1Keywords: ['AI content detector for marketers', 'ai generated text checker SEO', 'detect ai writing for content teams'],
+    icon: '📈',
+    accentColor: '#EC4899',
+  },
+  {
+    path: 'free-plagiarism-checker-for-essays',
+    title: 'Free Essay Plagiarism Checker Online',
+    metaTitle: 'Free Essay Plagiarism Checker Online — Instant Results | PlagiarismGuard',
+    metaDescription: 'Check your essay for plagiarism completely free. Paste your text and get an instant similarity score. No sign-up, no word limits, no hidden costs.',
+    h1: 'Free Essay Plagiarism Checker — Instant, No Sign-Up',
+    heroSubtitle: 'Paste your essay and click check. Get an instant originality score with highlighted matches. Completely free — no account required.',
+    targetAudience: 'Essay Writers',
+    benefitPoints: [
+      '100% free — no credit card or sign-up needed',
+      'Instant results in under 10 seconds',
+      'Detects copy-pasted, paraphrased, and AI-generated text',
+      'Works for high school, college, and university essays',
+      'Supports all essay styles and citation formats',
+    ],
+    tier1Keywords: ['free essay plagiarism checker', 'check essay for plagiarism free', 'free plagiarism checker online no sign up'],
+    icon: '📝',
+    accentColor: '#34D399',
+  },
+  {
+    path: 'plagiarism-checker-for-youtube-scripts',
+    title: 'Plagiarism Checker for YouTube Scripts & Video Content',
+    metaTitle: 'Plagiarism Checker for YouTube Scripts | PlagiarismGuard AI',
+    metaDescription: 'Check your YouTube scripts, video descriptions, and channel content for plagiarism and originality. Protect your channel from content ID strikes.',
+    h1: 'Plagiarism Checker for YouTube Scripts & Video Content',
+    heroSubtitle: 'Your YouTube script is your intellectual property. Scan it for duplicate content, AI-generated filler, and plagiarized passages before you record.',
+    targetAudience: 'YouTubers',
+    benefitPoints: [
+      'Check scripts for copied content before recording',
+      'Detect AI-generated scripts that risk demonetization',
+      'Protect your original ideas from other creators',
+      'Verify ghostwriter-delivered scripts are original',
+      'Fast results — check a full video script in seconds',
+    ],
+    tier1Keywords: ['plagiarism checker youtube scripts', 'video script originality checker', 'check youtube content for plagiarism'],
+    icon: '🎬',
+    accentColor: '#F87171',
+  },
+  {
+    path: 'plagiarism-checker-for-legal-documents',
+    title: 'Plagiarism Checker for Legal Documents & Contracts',
+    metaTitle: 'Plagiarism Checker for Legal Documents & Contracts | PlagiarismGuard',
+    metaDescription: 'Verify originality and detect unauthorized copying in contracts, briefs, and legal filings. AI-powered content verification for legal professionals.',
+    h1: 'Plagiarism Checker for Legal Documents & Contracts',
+    heroSubtitle: 'Unauthorized copying in legal documents carries serious professional and legal risk. Verify originality in contracts, briefs, and filings with AI-powered precision.',
+    targetAudience: 'Legal Professionals',
+    benefitPoints: [
+      'Detect copied clauses and boilerplate in contracts',
+      'Verify original authorship of legal briefs and filings',
+      'Screen paralegal and junior associate work product',
+      'Identify AI-generated legal text with high confidence',
+      'Confidential document handling — no data stored',
+    ],
+    tier1Keywords: ['plagiarism checker legal documents', 'contract originality checker', 'legal document duplication detector'],
+    icon: '⚖️',
+    accentColor: '#FCD34D',
+  },
+];

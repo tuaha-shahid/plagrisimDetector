@@ -1361,5 +1361,12 @@ export class BlogService {
   getPostBySlug(slug: string): BlogPost | undefined {
     return this.posts.find(p => p.slug === slug);
   }
+
+  /** Returns n posts from the same category, excluding the current post */
+  getRelatedPosts(currentSlug: string, category: string, limit: number = 3): BlogPost[] {
+    return this.posts
+      .filter(p => p.slug !== currentSlug && p.category === category)
+      .slice(0, limit);
+  }
 }
 
