@@ -209,6 +209,12 @@ export class HomeComponent implements AfterViewInit {
     return this.form.get('plagContent')?.value?.length || 0;
   }
 
+  get wordCount(): number {
+    const text = this.form.get('plagContent')?.value || '';
+    if (!text.trim()) return 0;
+    return text.trim().split(/\s+/).length;
+  }
+
   onDragOver(event: DragEvent) {
     event.preventDefault();
     this.isDragging = true;

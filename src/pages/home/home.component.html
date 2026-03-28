@@ -61,7 +61,7 @@
             </div>
             <div>
               <h5 class="m-0 text-white font-syne text-uppercase letter-spacing-1">Originality Scanner</h5>
-              <p class="m-0 text-muted small">Deep scan up to 5,000 words</p>
+              <p class="m-0 text-muted small">Deep scan up to 500 words</p>
             </div>
           </div>
           <button class="btn-clear-text" (click)="clearText()" *ngIf="form.value.plagContent">
@@ -103,12 +103,13 @@
         <!-- Scan Card Bottom Toolbar -->
         <div class="card-footer p-4 scan-toolbar d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
           <div class="toolbar-left d-flex flex-column gap-2" style="min-width: 140px;">
-            <div class="word-count-text small text-secondary fw-600">
-              <span class="text-primary">{{ (form.value.plagContent?.split(' ').length || 0) | number }}</span> / 5,000 words
+            <div class="word-count-text small fw-600" [ngClass]="wordCount > 500 ? 'text-danger' : 'text-secondary'">
+              <span [class.text-danger]="wordCount > 500" [class.text-primary]="wordCount <= 500">{{ wordCount | number }}</span> / 500 words
             </div>
             <div class="word-bar-track" style="width: 120px; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px;">
-              <div class="word-bar-fill" [style.width.%]="((form.value.plagContent?.split(' ').length || 0) / 5000) * 100" style="height: 100%; background: #00C2FF; border-radius: 2px;"></div>
+              <div class="word-bar-fill" [style.width.%]="(wordCount / 500) * 100" [style.background]="wordCount > 500 ? '#FF4D6A' : '#00C2FF'" style="height: 100%; border-radius: 2px;"></div>
             </div>
+            <small *ngIf="wordCount > 500" class="text-danger mt-1" style="font-size: 0.7rem; line-height: 1.2;">Limit exceeded.<br>Please reduce words.</small>
           </div>
 
           <div class="toolbar-right d-flex gap-3 align-items-center w-100 w-md-auto">
@@ -118,7 +119,7 @@
             </button>
             <input type="file" id="fileInput" class="d-none" (change)="onFileSelected($event)" accept=".txt,.doc,.docx,.pdf">
             
-            <button type="button" class="btn-primary flex-grow-1" (click)="checkPlagiarism()" [disabled]="isLoading || (form.value.plagContent?.length || 0) < 10">
+            <button type="button" class="btn-primary flex-grow-1" (click)="checkPlagiarism()" [disabled]="isLoading || (form.value.plagContent?.length || 0) < 10 || wordCount > 500">
               <span *ngIf="!isLoading">SCAN CONTENT</span>
               <div *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></div>
               <span *ngIf="isLoading">ANALYZING...</span>

@@ -6,11 +6,12 @@ import { DOCUMENT } from '@angular/common';
 import { BlogService, BlogPost } from '../blog.service';
 import { Subscription } from 'rxjs';
 import { CanonicalService } from '../../../services/canonical/canonical.service';
+import { BlogImageComponent } from '../../../shared/blog-image/blog-image.component';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, BlogImageComponent],
   templateUrl: './blog-post.component.html',
   styleUrl: './blog-post.component.css'
 })
