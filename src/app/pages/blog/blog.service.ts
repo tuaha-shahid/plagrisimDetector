@@ -1744,6 +1744,11 @@ export const BLOG_POSTS: BlogPost[] = [
     }
   ];
 
+@Injectable({
+  providedIn: 'root'
+})
+export class BlogService {
+
   getAllPosts(): BlogPost[] {
     return BLOG_POSTS;
   }
