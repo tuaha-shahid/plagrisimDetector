@@ -4,6 +4,7 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
+import { BLOG_POSTS } from './src/app/pages/blog/blog.service';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -19,6 +20,45 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+
+  // Dynamic Sitemap Generation
+  server.get('/sitemap.xml', (req, res) => {
+    const baseUrl = 'https://plagiarism-checker.dev';
+    
+    const staticRoutes = [
+      '',
+      '/about',
+      '/contact',
+      '/services',
+      '/blog'
+    ];
+    
+    let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+
+    staticRoutes.forEach(route => {
+      sitemap += `
+  <url>
+    <loc>${baseUrl}${route}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>${route === '' ? '1.0' : '0.8'}</priority>
+  </url>`;
+    });
+
+    BLOG_POSTS.forEach(post => {
+      sitemap += `
+  <url>
+    <loc>${baseUrl}/blog/${post.slug}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+    });
+
+    sitemap += `\n</urlset>`;
+
+    res.header('Content-Type', 'application/xml');
+    res.send(sitemap);
+  });
   // Serve static files from /browser
   server.get('**', express.static(browserDistFolder, {
     maxAge: '1y',

@@ -14,12 +14,7 @@ export interface BlogPost {
   imagePath?: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
-export class BlogService {
-
-  private posts: BlogPost[] = [
+export const BLOG_POSTS: BlogPost[] = [
     {
       slug: 'how-ai-language-models-are-changing-academic-integrity-2026',
       title: 'How AI Language Models Are Changing Academic Integrity in 2026',
@@ -1750,17 +1745,17 @@ export class BlogService {
   ];
 
   getAllPosts(): BlogPost[] {
-    return this.posts;
+    return BLOG_POSTS;
   }
 
   getPostBySlug(slug: string): BlogPost | undefined {
-    return this.posts.find(p => p.slug === slug);
+    return BLOG_POSTS.find((p: BlogPost) => p.slug === slug);
   }
 
   /** Returns n posts from the same category, excluding the current post */
   getRelatedPosts(currentSlug: string, category: string, limit: number = 3): BlogPost[] {
-    return this.posts
-      .filter(p => p.slug !== currentSlug && p.category === category)
+    return BLOG_POSTS
+      .filter((p: BlogPost) => p.slug !== currentSlug && p.category === category)
       .slice(0, limit);
   }
 }
