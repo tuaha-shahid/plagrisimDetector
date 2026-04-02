@@ -42,7 +42,7 @@ export class AppComponent implements AfterViewInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.isLocked$ = this.securityService.isLocked$;
 
-    // Set Root Canonical
+    // Set Root Canonical 
     if (this.isBrowser) {
       this.canonicalService.setRoot();
     }
