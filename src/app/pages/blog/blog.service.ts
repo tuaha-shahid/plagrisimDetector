@@ -24,7 +24,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 20, 2026',
       readTime: '9 min read',
       category: 'Academic Integrity',
-      imagePath: '/assets/blog-images/how-ai-language-models-are-changing-academic-integrity-2026-hero.webp',
+      imagePath: '/assets/blog-images/how-ai-language-models-are-changing-academic-integrity-2026-hero.png',
       excerpt: 'Large language models have crossed a threshold. In 2026, the question institutions are grappling with is not whether AI writes student content, but how to verify, manage, and respond to it with fairness and precision.',
       content: `
         <p>Large language models (LLMs) have crossed a decisive threshold. In 2026, the question institutions are grappling with is not whether AI writes student content — it is how to verify, manage, and respond to it with fairness, precision, and institutional integrity. The arrival of GPT-4, Claude 3, and Gemini Ultra has not merely accelerated existing trends; it has forced a fundamental reconsideration of what academic honesty means.</p>
@@ -96,7 +96,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 15, 2026',
       readTime: '10 min read',
       category: 'Education',
-      imagePath: '/assets/blog-images/difference-between-plagiarism-and-ai-assisted-writing-hero.webp',
+      imagePath: '/assets/blog-images/difference-between-plagiarism-and-ai-assisted-writing-hero.png',
       excerpt: 'Not all AI use is plagiarism, and not all plagiarism involves AI. Understanding the distinction is critical for students, educators, publishers, and anyone navigating the evolving landscape of content authenticity.',
       content: `
         <p>Not all AI use is plagiarism, and not all plagiarism involves AI. In 2026, conflating the two concepts leads to confused policies, unjust outcomes, and a failure to address both problems effectively. Understanding the critical distinction between plagiarism and AI-assisted writing — where the lines are, why they matter, and how detection systems must handle each — is essential for students, educators, publishers, and anyone operating in the evolving landscape of content authenticity.</p>
@@ -186,7 +186,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 10, 2026',
       readTime: '8 min read',
       category: 'Technology',
-      imagePath: '/assets/blog-images/why-traditional-plagiarism-checkers-fail-against-chatgpt-hero.webp',
+      imagePath: '/assets/blog-images/why-traditional-plagiarism-checkers-fail-against-chatgpt-hero.png',
       excerpt: 'Traditional plagiarism detection engines were built for a world where dishonest writing meant copying from a traceable human source. ChatGPT generates text that traces to no source at all — and that architectural assumption is exactly why conventional tools fail.',
       content: `
         <p>Traditional plagiarism detection engines were built for a world where dishonest writing meant copying text from a traceable human source. ChatGPT and its successors generate text that traces to no specific source document at all. That single architectural mismatch is the root cause of the widespread failure of conventional plagiarism tools to catch AI-generated submissions — and understanding it precisely is the first step toward solving it.</p>
@@ -270,7 +270,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 5, 2026',
       readTime: '8 min read',
       category: 'SEO',
-      imagePath: '/assets/blog-images/impact-of-plagiarism-on-seo-rankings-and-domain-authority-hero.webp',
+      imagePath: '/assets/blog-images/impact-of-plagiarism-on-seo-rankings-and-domain-authority-hero.png',
       excerpt: 'Duplicate and plagiarised content is not just an academic integrity issue — it is a direct threat to your website rankings, your domain authority, and your long-term organic search visibility.',
       content: `
         <p>Duplicate and plagiarised content is not merely an academic or ethical concern — it carries severe and measurable consequences for website search performance. In 2026, Google's search infrastructure has become sophisticated enough to identify content originality signals at a level that directly impacts rankings, indexing priority, and domain authority accumulation. For publishers, bloggers, content marketers, and SaaS businesses, understanding this relationship is not optional: it is a foundational SEO competency.</p>
@@ -323,7 +323,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 2, 2026',
       readTime: '7 min read',
       category: 'Content Ethics',
-      imagePath: '/assets/blog-images/self-plagiarism-what-it-is-and-why-content-creators-should-care-hero.webp',
+      imagePath: '/assets/blog-images/self-plagiarism-what-it-is-and-why-content-creators-should-care-hero.png',
       excerpt: 'Most creators understand plagiarism as copying someone else\'s work. But what happens when you copy yourself? Self-plagiarism is a real, consequential issue in academia, journalism, and digital publishing — and it is far more nuanced than it first appears.',
       content: `
         <p>The term "self-plagiarism" can seem paradoxical on first encounter. How can you steal from yourself? The answer lies in understanding that plagiarism is fundamentally about deception and false representation, not just copyright. When you submit or publish work as new and original when it is substantially derived from your own prior work — without disclosing that fact — you are deceiving your audience, your institution, or your publisher about the nature and originality of what you have produced.</p>
@@ -371,7 +371,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'February 28, 2026',
       readTime: '9 min read',
       category: 'Legal',
-      imagePath: '/assets/blog-images/copyright-infringement-vs-plagiarism-understanding-the-legal-differences-hero.webp',
+      imagePath: '/assets/blog-images/copyright-infringement-vs-plagiarism-understanding-the-legal-differences-hero.png',
       excerpt: 'Many people use the terms copyright infringement and plagiarism interchangeably, but they are distinct concepts with different legal implications, different enforcement mechanisms, and different defences.',
       content: `
         <p>Copyright infringement and plagiarism are frequently conflated in public discourse, but they occupy fundamentally different legal and ethical territories. Understanding this distinction is essential for students, content creators, journalists, academics, and any professional who works with written, visual, or multimedia content. The concepts overlap in some cases, but are entirely separate in others — and the consequences of each differ substantially.</p>
@@ -429,7 +429,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'February 24, 2026',
       readTime: '8 min read',
       category: 'SEO',
-      imagePath: '/assets/blog-images/how-googles-algorithm-treats-ai-generated-content-vs-copied-text-hero.webp',
+      imagePath: '/assets/blog-images/how-googles-algorithm-treats-ai-generated-content-vs-copied-text-hero.png',
       excerpt: 'Google\'s stance on AI-generated content has undergone significant evolution. Understanding the distinction Google draws between AI content and traditional copied text is essential for any publisher relying on search traffic.',
       content: `
         <p>Google's official guidance on AI-generated content has evolved dramatically from its initial cautious framing in 2023 to a more nuanced, content-quality-centric position in 2025 and 2026. For publishers and content strategists, understanding how Google currently differentiates between AI-generated content and traditional copied or duplicate text is essential — because the ranking treatment and enforcement mechanisms differ substantially between the two.</p>
@@ -473,7 +473,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'February 20, 2026',
       readTime: '7 min read',
       category: 'Technology',
-      imagePath: '/assets/blog-images/rise-of-spinbots-how-semantic-analysis-catches-article-spinners-hero.webp',
+      imagePath: '/assets/blog-images/rise-of-spinbots-how-semantic-analysis-catches-article-spinners-hero.png',
       excerpt: 'Content spinning tools have evolved from simple synonym substitution to AI-powered paraphrasers — but semantic analysis has evolved faster. Here\'s how modern detection exposes spun content that defeats traditional checkers.',
       content: `
         <p>Article spinning — the practice of automatically generating textual variants of existing content to produce apparently "unique" material at scale — has been part of the black-hat SEO toolkit since the early 2010s. The early tools were crude: synonyms were substituted from a thesaurus, sentences were shuffled, and the resulting text was often barely readable. But in 2026, the spinbot landscape has been dramatically transformed by access to large language models, and the detection challenge has grown correspondingly more complex.</p>
@@ -520,7 +520,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'February 16, 2026',
       readTime: '8 min read',
       category: 'Academic Integrity',
-      imagePath: '/assets/blog-images/understanding-similarity-scores-what-percentage-is-acceptable-in-academia-hero.webp',
+      imagePath: '/assets/blog-images/understanding-similarity-scores-what-percentage-is-acceptable-in-academia-hero.png',
       excerpt: 'A 30% similarity score is not automatically a problem — and a 5% score is not automatically safe. Understanding what similarity percentages actually mean and how institutions interpret them is essential knowledge for every student and educator.',
       content: `
         <p>The similarity score produced by plagiarism detection software is one of the most widely misunderstood metrics in academic assessment. Students frequently perceive it as a direct measure of plagiarism — the lower the number, the more original the work. Instructors sometimes apply rigid percentage thresholds without contextual analysis. Both approaches misrepresent what the score actually measures and lead to either unnecessary anxiety or, more dangerously, failure to identify genuine misconduct.</p>
@@ -970,7 +970,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'January 10, 2026',
       readTime: '7 min read',
       category: 'SEO',
-      imagePath: '/assets/blog-images/content-syndication-vs-duplicate-content-seo-best-practices-hero.webp',
+      imagePath: '/assets/blog-images/content-syndication-vs-duplicate-content-seo-best-practices-hero.png',
       excerpt: 'Syndicating your content to reach new audiences is a legitimate and effective strategy — but only when implemented with the precise technical controls that prevent Google from treating your own agreed republications as duplicate content penalties.',
       content: `
         <p>Content syndication — the practice of republishing your original content on third-party platforms, partner sites, or media outlets — is a legitimate and often powerful content strategy. Done correctly, syndication expands reach, builds backlinks, and increases brand authority. Done incorrectly, it creates the exact same duplicate content problems as scraping and plagiarism, except you are the one generating the duplication. The technical difference between safe syndication and self-inflicted duplicate content penalties comes down to a small number of implementation details that every publisher needs to understand.</p>
@@ -1008,7 +1008,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'January 7, 2026',
       readTime: '8 min read',
       category: 'Media Ethics',
-      imagePath: '/assets/blog-images/journalistic-integrity-in-the-ai-era-the-cost-of-copied-content-hero.webp',
+      imagePath: '/assets/blog-images/journalistic-integrity-in-the-ai-era-the-cost-of-copied-content-hero.png',
       excerpt: 'Journalism has always grappled with plagiarism — but AI-generation tools have introduced new forms of content copying that threaten newsroom credibility at scale. The reputational and institutional costs of copied journalistic content have never been higher.',
       content: `
         <p>Journalism's relationship with plagiarism has been shaped by a series of high-profile scandals — from Jayson Blair at the New York Times to more recent cases involving AI-generated content at major outlets. In 2026, the intersection of AI writing tools, content aggregation, and reduced newsroom resources has created conditions where copied content can enter the journalistic pipeline more easily than at any previous point in the profession's history. Understanding the specific risks, and the structural responses the industry is developing, is essential context for anyone concerned with press integrity.</p>
@@ -1046,7 +1046,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'January 3, 2026',
       readTime: '10 min read',
       category: 'Academic Integrity',
-      imagePath: '/assets/blog-images/redrafting-the-honor-code-how-universities-are-adapting-to-generative-ai-hero.webp',
+      imagePath: '/assets/blog-images/redrafting-the-honor-code-how-universities-are-adapting-to-generative-ai-hero.png',
       excerpt: 'From blanket bans to full integration frameworks, universities worldwide are redesigning their honour codes around generative AI. The diversity of institutional responses reveals deep disagreements about the purpose of education — and points toward the elements most likely to produce sustainable integrity frameworks.',
       content: `
         <p>No policy challenge has required faster institutional adaptation in higher education since the internet itself than the arrival of capable generative AI. Universities that developed their academic integrity codes over decades have been forced to reconsider fundamental assumptions about authorship, originality, and the purpose of assessment — and to do so at a pace that normally takes years of faculty governance processes compressed into months. The landscape of institutional responses in 2026 is diverse, revealing deep disagreements about values as much as about technology.</p>
@@ -1087,7 +1087,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 28, 2025',
       readTime: '7 min read',
       category: 'Technology',
-      imagePath: '/assets/blog-images/the-paraphrasing-trap-why-word-spinners-wont-fool-modern-detectors-hero.webp',
+      imagePath: '/assets/blog-images/the-paraphrasing-trap-why-word-spinners-wont-fool-modern-detectors-hero.png',
       excerpt: 'Students and content creators often believe that running text through a paraphrasing tool makes plagiarism undetectable. Modern semantic analysis reveals this confidence to be profoundly misplaced — and understanding why illuminates how current detection actually works.',
       content: `
         <p>The paraphrasing trap is one of the most common misconceptions about plagiarism detection in 2026. Students, content aggregators, and SEO practitioners frequently believe that processing source text through a paraphrasing tool — QuillBot, Wordtune, Spinbot, or similar services — produces content that is functionally "new" and undetectable by plagiarism checkers. This belief is based on an accurate understanding of how first-generation plagiarism detectors work, but a fundamental misunderstanding of how modern semantic analysis operates. The gap between these two models is the gap between false security and actual originality.</p>
@@ -1117,7 +1117,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 22, 2025',
       readTime: '9 min read',
       category: 'AI Ethics',
-      imagePath: '/assets/blog-images/navigating-false-positives-can-ai-detectors-falsely-accuse-original-writers-hero.webp',
+      imagePath: '/assets/blog-images/navigating-false-positives-can-ai-detectors-falsely-accuse-original-writers-hero.png',
       excerpt: 'AI content detectors are probabilistic systems, and probabilistic systems make errors. Understanding who bears the highest false positive risk, what causes it, and how responsible institutions respond is essential knowledge in 2026.',
       content: `
         <p>The false positive problem in AI content detection is one of the most consequential and least publicly understood aspects of academic integrity enforcement in 2026. A false positive — an AI detector flagging genuinely human-written content as AI-generated — can initiate an academic misconduct investigation against a student who has done nothing wrong. The consequences of such investigations are serious: emotional distress, reputational damage, time loss, and in some cases formal sanctions based on probabilistic evidence that the student cannot disprove through any means other than general character testimony.</p>
@@ -1158,7 +1158,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 18, 2025',
       readTime: '6 min read',
       category: 'Business',
-      imagePath: '/assets/blog-images/building-a-culture-of-originality-in-corporate-content-teams-hero.webp',
+      imagePath: '/assets/blog-images/building-a-culture-of-originality-in-corporate-content-teams-hero.png',
       excerpt: 'For corporate content teams, originality is not just an ethical standard — it is a brand protection requirement, an SEO competitive advantage, and increasingly a legal compliance concern. Building a culture that embeds originality at every stage of production requires both tools and team habits.',
       content: `
         <p>Content originality in corporate contexts serves multiple functions simultaneously: it protects brand credibility, maintains SEO competitive advantages, reduces legal risk from copyright infringement, and reflects the authentic value proposition that distinguishes genuine thought leadership from content marketing noise. In 2026, with AI writing tools accelerating content production across corporate teams, establishing and maintaining originality standards requires deliberate cultural and process investment.</p>
@@ -1195,7 +1195,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 14, 2025',
       readTime: '8 min read',
       category: 'History/Ethics',
-      imagePath: '/assets/blog-images/high-profile-plagiarism-scandals-lessons-learned-from-ruined-careers-hero.webp',
+      imagePath: '/assets/blog-images/high-profile-plagiarism-scandals-lessons-learned-from-ruined-careers-hero.png',
       excerpt: 'High-profile plagiarism scandals share common structural patterns: institutional pressure, inadequate verification, and the gradual normalisation of shortcuts. Examining these cases with analytical clarity reveals the systemic lessons that individuals and institutions consistently fail to apply.',
       content: `
         <p>The history of high-profile plagiarism scandals is not primarily a history of individual moral failures — though individual failures are certainly present in every case. It is a history of systemic conditions: institutional pressures that create incentives for shortcutting, verification processes that are inadequate to the claims being made, and cultures that normalise certain forms of intellectual borrowing until an external scrutiny event reveals how far practices have drifted from stated standards. Examining prominent cases through this analytical lens yields lessons that remain under-applied in precisely the institutions and contexts most likely to produce the next scandal.</p>
@@ -1230,7 +1230,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 10, 2025',
       readTime: '7 min read',
       category: 'Academic Skills',
-      imagePath: '/assets/blog-images/the-role-of-similarity-checkers-in-the-academic-peer-review-process-hero.webp',
+      imagePath: '/assets/blog-images/the-role-of-similarity-checkers-in-the-academic-peer-review-process-hero.png',
       excerpt: 'Similarity checking has become embedded infrastructure for academic publishing — but how editors use the reports, and what the limitations of this infrastructure are, determines whether it actually improves publication integrity.',
       content: `
         <p>Similarity checking has become standard pre-publication infrastructure for the vast majority of peer-reviewed academic journals. Major publishers including Elsevier, Springer Nature, Wiley, and Taylor & Francis all operate mandatory similarity screening on manuscript submissions, and CrossCheck (now Crossref Similarity Check, powered by iThenticate) processes hundreds of thousands of academic manuscripts per year. Understanding how this system works, what its limitations are, and how editors are trained to interpret its outputs is essential knowledge for anyone submitting to or editing academic publications.</p>
@@ -1272,7 +1272,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 6, 2025',
       readTime: '8 min read',
       category: 'Linguistics',
-      imagePath: '/assets/blog-images/cross-lingual-plagiarism-how-translating-content-still-counts-as-theft-hero.webp',
+      imagePath: '/assets/blog-images/cross-lingual-plagiarism-how-translating-content-still-counts-as-theft-hero.png',
       excerpt: 'Translating someone else\'s article into English and publishing it as original content is plagiarism — and often copyright infringement — regardless of language change. Cross-lingual plagiarism is increasingly prevalent and increasingly detectable.',
       content: `
         <p>Cross-lingual plagiarism — the appropriation of content from a source in one language and presentation of it as original work in a different language, without attribution — is one of the fastest-growing forms of content theft in 2026. The growth is driven by two converging factors: the global proliferation of high-quality machine translation tools that make multilingual content theft trivially accessible to anyone, and the persistent misconception that changing the language of content is sufficient to make it "original." Both the ethical and legal reality is unambiguous: it is not.</p>
@@ -1306,7 +1306,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'December 2, 2025',
       readTime: '9 min read',
       category: 'SEO',
-      imagePath: '/assets/blog-images/how-to-recover-your-website-from-a-google-duplicate-content-penalty-hero.webp',
+      imagePath: '/assets/blog-images/how-to-recover-your-website-from-a-google-duplicate-content-penalty-hero.png',
       excerpt: 'A duplicate or thin content issue can cause dramatic traffic drops that persist for months without systematic remediation. This guide walks through the diagnostic and recovery process step by step.',
       content: `
         <p>A Google duplicate or thin content issue — whether from algorithmic filtering of near-duplicate pages or a manual action for scaled content violations — can cause dramatic, persistent organic traffic drops that confuse site owners who do not know what caused them. Recovery is possible but requires systematic diagnosis, correction, and evidence of genuine content quality improvement. The sites that recover fastest are those that understand the specific mechanism of their penalty and apply targeted fixes rather than generic SEO tips.</p>
@@ -1344,7 +1344,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'November 28, 2025',
       readTime: '8 min read',
       category: 'Future Tech',
-      imagePath: '/assets/blog-images/cryptographic-watermarking-the-next-frontier-in-ai-content-identification-hero.webp',
+      imagePath: '/assets/blog-images/cryptographic-watermarking-the-next-frontier-in-ai-content-identification-hero.png',
       excerpt: 'Cryptographic watermarking — imperceptible signals embedded into AI-generated text at output time — offers a fundamentally different approach to AI content identification. Understanding its mechanics, current limitations, and timeline for practical deployment is essential for anyone tracking the future of content verification.',
       content: `
         <p>The current generation of AI content detection operates by analysing statistical properties of completed text to infer whether it was likely generated by an LLM. This approach is inherently probabilistic, inherently gameable by sufficiently sophisticated evasion, and inherently limited by the overlap between human and AI writing distributions. Cryptographic watermarking — embedding provenance signals into AI-generated text at the point of generation — represents a fundamentally different paradigm that could eventually make AI content identification as reliable as digital signature verification. Understanding where this technology stands in 2026 and what realistic adoption timelines look like is important for anyone planning content integrity infrastructure.</p>
@@ -1386,7 +1386,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 25, 2026',
       readTime: '10 min read',
       category: 'AI Ethics',
-      imagePath: '/assets/blog-images/bias-in-ai-detectors-non-native-english-speakers-hero.webp',
+      imagePath: '/assets/blog-images/bias-in-ai-detectors-non-native-english-speakers-hero.png',
       excerpt: 'A Stanford study found that non-native English writers face a 61.3% false positive rate from AI detectors. We examine the mechanics of this bias and what can be done about it.',
       content: `
         <p>When a university student submits an essay and is accused of using AI to write it, the consequences can be career-ending — academic probation, dismissed scholarships, or expulsion. Now imagine that accusation is wrong, and the only reason it was triggered is that the student writes English as a second language.</p>
@@ -1439,7 +1439,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 24, 2026',
       readTime: '9 min read',
       category: 'SEO',
-      imagePath: '/assets/blog-images/google-helpful-content-update-ai-vs-human-text-hero.webp',
+      imagePath: '/assets/blog-images/google-helpful-content-update-ai-vs-human-text-hero.png',
       excerpt: "Google's Helpful Content System evaluates entire websites, not just individual pages. Understanding how it distinguishes genuine expertise from AI-generated content is now essential for any SEO strategy.",
       content: `
         <p>In September 2023, Google completed a fundamental shift in how it evaluates web content. The Helpful Content System, initially launched in 2022, was rolled into Google's core ranking infrastructure — meaning it now operates continuously, not as a periodic update. For content creators and SEO professionals, this represents the most important change to search rankings in a decade, and its implications for AI-generated content are profound.</p>
@@ -1478,7 +1478,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 23, 2026',
       readTime: '8 min read',
       category: 'Legal',
-      imagePath: '/assets/blog-images/plagiarism-in-prompt-engineering-can-you-steal-a-prompt-hero.webp',
+      imagePath: '/assets/blog-images/plagiarism-in-prompt-engineering-can-you-steal-a-prompt-hero.png',
       excerpt: 'Prompt engineering is now a six-figure profession, but the intellectual property framework for protecting prompts has barely been written. Can a prompt be copyrighted? Stolen? Detected?',
       content: `
         <p>In 2023, PromptBase — a marketplace for buying and selling AI prompts — crossed one million users. Prompt engineers are commanding salaries of $175,000 or more at major technology firms. System prompts have become core corporate assets. And yet, the legal and ethical framework around prompt ownership barely exists. Can you own a prompt? Can someone steal one? And if they do, is it plagiarism?</p>
@@ -1512,7 +1512,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 22, 2026',
       readTime: '8 min read',
       category: 'Future Tech',
-      imagePath: '/assets/blog-images/synthid-watermarking-how-ai-content-will-be-tracked-hero.webp',
+      imagePath: '/assets/blog-images/synthid-watermarking-how-ai-content-will-be-tracked-hero.png',
       excerpt: "Google DeepMind's SynthID watermarks AI-generated text at the token level. We explain exactly how it works, where it's deployed, and whether it will eventually make statistical AI detectors obsolete.",
       content: `
         <p>In late 2024, Google DeepMind deployed SynthID for text — a cryptographic watermarking system that embeds a provenance signal directly into AI-generated tokens at the point of generation. Unlike metadata tags that can be stripped, or stylistic patterns that can be paraphrased away, SynthID encodes a watermark into the statistical structure of the text itself. It represents the most significant development in AI content verification since the field emerged, and it is already live in Gemini products.</p>
@@ -1546,7 +1546,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 21, 2026',
       readTime: '9 min read',
       category: 'Legal',
-      imagePath: '/assets/blog-images/legal-risks-using-chatgpt-freelance-client-work-hero.webp',
+      imagePath: '/assets/blog-images/legal-risks-using-chatgpt-freelance-client-work-hero.png',
       excerpt: 'Freelance contracts increasingly contain explicit AI prohibition clauses. Using ChatGPT on client work without disclosure can expose you to breach of contract claims, copyright disputes, and confidentiality violations.',
       content: `
         <p>The freelance economy has adopted AI tools with remarkable speed, but the legal frameworks governing freelance work have not kept pace. In 2024 and 2025, a wave of client-side contract updates, disputed deliverables, and at least one high-profile lawsuit have clarified the real legal risks of using AI tools on client projects without appropriate disclosure. For freelancers and agencies, the landscape is now clear enough that ignorance is no longer a viable defense.</p>
@@ -1585,7 +1585,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 20, 2026',
       readTime: '9 min read',
       category: 'Technology',
-      imagePath: '/assets/blog-images/does-humanizing-ai-text-bypass-plagiarism-scanners-2026-hero.webp',
+      imagePath: '/assets/blog-images/does-humanizing-ai-text-bypass-plagiarism-scanners-2026-hero.png',
       excerpt: 'The "AI humanizer" market has exploded, with tools claiming to make GPT output undetectable. We tested six popular humanizers against multiple detection systems to find out what actually works.',
       content: `
         <p>A category of software has emerged with a single explicit purpose: to take AI-generated text and transform it so that AI detectors cannot identify its origin. "AI humanizer" tools, including Undetectable.ai, Quillbot, Stealthwriter, and half a dozen others, have built large user bases on the premise that their transformations can reliably bypass modern plagiarism and AI detection systems. We put that claim to the test.</p>
@@ -1617,7 +1617,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 19, 2026',
       readTime: '10 min read',
       category: 'Academic Integrity',
-      imagePath: '/assets/blog-images/universities-rewriting-plagiarism-policies-generative-ai-2026-hero.webp',
+      imagePath: '/assets/blog-images/universities-rewriting-plagiarism-policies-generative-ai-2026-hero.png',
       excerpt: "Three years after ChatGPT's launch, the majority of higher education institutions are still operating with incomplete AI policies. Here's what the most forward-thinking institutions are doing right.",
       content: `
         <p>The release of ChatGPT in November 2022 forced higher education institutions to confront a challenge they were entirely unprepared for: a technology that could produce plausible academic prose, available to every student for free, in seconds. Three years later, the policy response has been fragmented, delayed, and often contradictory — but a clearer picture is emerging of what effective AI academic integrity policy looks like.</p>
@@ -1652,7 +1652,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 18, 2026',
       readTime: '9 min read',
       category: 'AI Ethics',
-      imagePath: '/assets/blog-images/ai-hallucinations-vs-plagiarism-fake-citations-invented-sources-hero.webp',
+      imagePath: '/assets/blog-images/ai-hallucinations-vs-plagiarism-fake-citations-invented-sources-hero.png',
       excerpt: 'AI models fabricate citations with full confidence — inventing paper titles, author names, journal volumes, and page numbers that do not exist. We examine whether this constitutes plagiarism, data fabrication, or something entirely new.',
       content: `
         <p>In 2023, a New York attorney named Steven Schwartz submitted a legal brief citing six court cases as precedent. All six cases were fabricated by ChatGPT. The cases did not exist. The citations were structurally perfect — case name, court, year, reporter, and page number — and entirely fictional. The attorney was sanctioned by the court. The case became the most prominent real-world illustration of a phenomenon that researchers had been documenting since the earliest days of large language models: hallucinated citations.</p>
@@ -1694,7 +1694,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 17, 2026',
       readTime: '8 min read',
       category: 'Education',
-      imagePath: '/assets/blog-images/best-free-turnitin-alternatives-college-students-2026-hero.webp',
+      imagePath: '/assets/blog-images/best-free-turnitin-alternatives-college-students-2026-hero.png',
       excerpt: "Turnitin keeps a permanent copy of every submission in its global database. Here are the best free plagiarism checkers for students who want to verify their own work without surrendering their intellectual property.",
       content: `
         <p>Turnitin is the dominant plagiarism detection platform in higher education, used by over 15,000 institutions in 140 countries. But for student self-checking — running your own paper before submission to catch unintentional plagiarism — Turnitin has a problem: it retains a copy of every submission in its global repository permanently. For students who want to check their work without contributing to a commercial database, free alternatives offer a legitimate and effective solution.</p>
@@ -1736,7 +1736,7 @@ export const BLOG_POSTS: BlogPost[] = [
       date: 'March 16, 2026',
       readTime: '9 min read',
       category: 'Business',
-      imagePath: '/assets/blog-images/corporate-ai-plagiarism-scandals-case-studies-hero.webp',
+      imagePath: '/assets/blog-images/corporate-ai-plagiarism-scandals-case-studies-hero.png',
       excerpt: 'CNET, Sports Illustrated, and multiple marketing agencies have faced serious reputational and legal consequences for AI content failures. These cases define what AI content governance must prevent.',
       content: `
         <p>When organizations deploy AI tools for content production at scale without adequate governance, the results are predictable: errors, duplicates, misattributed facts, and content that violates third-party intellectual property rights. The corporate AI content scandals of 2023–2026 have provided some of the most instructive — and expensive — lessons in what not to do.</p>
