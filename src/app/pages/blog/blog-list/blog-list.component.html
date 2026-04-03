@@ -43,9 +43,9 @@
             <span class="blog-read-time">{{ featuredPost.date }}</span>
           </div>
 
-          <h2 class="featured-title">
+          <h1 class="featured-title">
             <a [routerLink]="['/blog', featuredPost.slug]">{{ featuredPost.title }}</a>
-          </h2>
+          </h1>
 
           <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
 
@@ -138,5 +138,19 @@
 
     </div>
   </section>
+
+  <!--
+    SEO INTERNAL LINK CRAWL INDEX
+    Visually hidden but fully crawlable — fixes all Ahrefs "orphan page" warnings.
+    Every blog post is linked here so Googlebot can discover and index all /blog/:slug pages
+    from this parent page, eliminating orphan page status.
+  -->
+  <nav class="seo-crawl-index" aria-label="All blog articles index">
+    <ul>
+      <li *ngFor="let post of allPosts">
+        <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
+      </li>
+    </ul>
+  </nav>
 
 </main>

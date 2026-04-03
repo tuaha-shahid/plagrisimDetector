@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { BlogService, BlogPost } from '../blog.service';
 import { Subscription } from 'rxjs';
 import { CanonicalService } from '../../../services/canonical/canonical.service';
+import { SeoService } from '../../../services/seo/seo.service';
 import { BlogImageComponent } from '../../../shared/blog-image/blog-image.component';
 
 @Component({
@@ -26,6 +27,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private metaService: Meta,
     private canonicalService: CanonicalService,
+    private seoService: SeoService,
     @Inject(DOCUMENT) private doc: Document,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
@@ -34,7 +36,17 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.paramMap.subscribe(params => {
       const slug = params.get('slug') || '';
       this.post = this.blogService.getPostBySlug(slug);
+      
       if (this.post) {
+        // Enforce SSR meta rendering statically using SeoService
+        this.seoService.updateAll({
+          title: `${this.post.title} | PlagiarismGuard Blog`,
+          description: this.post.excerpt || this.post.metaDescription,
+          url: `https://plagiarism-checker.dev/blog/${this.post.slug}`,
+          imageUrl: this.post.imagePath
+        });
+        
+        // Execute existing functional logic
         this.updateSEOMeta(this.post);
         this.relatedPosts = this.blogService.getRelatedPosts(this.post.slug, this.post.category, 3);
       }

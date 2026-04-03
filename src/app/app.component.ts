@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { isPlatformBrowser, AsyncPipe, NgIf } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
-import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { FooterComponent } from '../pages/footer/footer.component';
 import { NavbarComponent } from '../pages/navbar/navbar.component';
 import { SecurityLatchService } from '../Services/Security/security-latch.service';
 import { CanonicalService } from './services/canonical/canonical.service';
+import { SeoService } from './services/seo/seo.service';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -34,10 +35,12 @@ export class AppComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     public securityService: SecurityLatchService,
     private titleService: Title,
     private metaService: Meta,
-    private canonicalService: CanonicalService
+    private canonicalService: CanonicalService,
+    private seoService: SeoService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.isLocked$ = this.securityService.isLocked$;
@@ -47,7 +50,10 @@ export class AppComponent implements AfterViewInit {
       this.canonicalService.setRoot();
     }
 
-    // Add Global SEO Tags
+    // Start listening to route changes and auto-updating meta descriptions
+    this.seoService.listenToRouteChanges();
+
+    // Set fallback global SEO Tags
     this.titleService.setTitle('PlagiarismGuard - Advanced AI Plagiarism Detection');
     this.metaService.addTags([
       { name: 'description', content: 'Protect your content integrity with an advanced AI plagiarism detection neural pipeline.' },
